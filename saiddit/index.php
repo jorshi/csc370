@@ -1,9 +1,13 @@
 <?php
-include('login.php');
+	include('connect/login.php');
 
-if (isset($_SESSION['login_user'])) {
-    header("location: profile.php");
-}
+	if (isset($_SESSION['login_user'])) {
+	    header("location: profile.php");
+	}
+
+	if (isset($_SESSION['signup_user'])) {
+	    header("location: profile.php");
+	}
 ?>
 
 <!DOCTYPE html>

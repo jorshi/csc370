@@ -2,14 +2,8 @@
 /*----------------------------------------------
  * CSS Settings For HTML Div ExactCenter
  * ------------------------------------------------*/
-#main {
-    width:960px;
-    margin:50px auto;
-    font-family:raleway
-}
-span {
-    color:red
-}
+
+ /* -------------------------------------------------------- MAIN STYLESHEET -------------------------------------------------------- */
 h2 {
     background-color:#FEFFED;
     text-align:center;
@@ -17,12 +11,28 @@ h2 {
     margin:-10px -40px;
     padding:15px
 }
+
+h3 {
+    color:grey;
+    text-align:center;
+}
+
 hr {
     border:0;
     border-bottom:1px solid #ccc;
     margin:10px -40px;
     margin-bottom:30px
 }
+
+.vr {
+    position:absolute;
+    border-right:1px solid #ccc;
+    color:solid #000;
+}
+
+/* -------------------------------------------------------- LOGIN STYLESHEET -------------------------------------------------------- */
+
+
 #login {
     width:300px;
     float:left;
@@ -33,7 +43,7 @@ hr {
     margin-top:70px
 }
 input[type=text],input[type=password] {
-    width:99.5%;
+    width:95%;
     padding:10px;
     margin-top:8px;
     border:1px solid #ccc;
@@ -42,10 +52,12 @@ input[type=text],input[type=password] {
     font-family:raleway
 }
 input[type=submit] {
-    width:100%;
-    background-color:#FFBC00;
+    position:absolute;
+    width:100px;
+    background-color:#5087B6;
     color:#fff;
-    border:2px solid #FFCB00;
+    border:2px solid #5087B6;
+    right:30px;
     padding:10px;
     font-size:20px;
     cursor:pointer;
@@ -65,8 +77,211 @@ input[type=submit] {
 }
 a {
     text-decoration:none;
-    color:#6495ed
+    color:#6495ed;
+    font-family:raleway;
 }
 i {
     color:#6495ed
+}
+
+
+/* ------------------------------------------------------ HOMEPAGE STYLESHEET ------------------------------------------------------ */
+#nav_bar {
+    position:relative;
+    width:100%;
+    height:50px;
+    background-color:#CBE4FA;
+    border:2px solid #5087B6;  
+}
+
+#login_button {
+    position:absolute;
+    right:0px;
+    bottom:0px;
+}
+
+#popup_main {
+    z-index:99;
+    
+    width:100%;
+    height:100%;
+
+    
+    top:0;
+    left:0;
+    
+    display:none;
+    position:fixed;
+    
+    background-color:rgba(0,0,0,0.6);
+    overflow:auto;
+}
+
+#block {
+    z-index:100;
+    position:relative;
+    margin:2% auto;
+    opacity:1;
+    width:900px;
+    height:600px;
+
+    border:2px solid gray;
+    border-radius:10px;
+    
+    font-family:'Raleway',sans-serif;
+    background-color:#fff;
+    overflow:hidden;
+}
+
+#close_popup_main:before {
+    content:'x';
+    color:#5087B6;
+}
+
+#close_popup_main {
+    position:absolute;
+    right:20px;
+    top:10px;
+    font-size:30px;
+    cursor:pointer;
+}
+
+#register_form {
+    position:relative;
+
+    top:40px;
+    left:10px;
+
+    width:380px;
+    height:500px;
+
+    padding:10px 30px;
+    font-family:'Raleway',sans-serif;
+}
+
+#login_form {
+    position:absolute;
+
+    top:40px;
+    right:10px;
+
+    width:380px;
+    height:500px;
+
+    padding:10px 30px;
+    font-family:'Raleway',sans-serif;
+}
+
+#disclaimer {
+    position:absolute;
+    z-index:99;
+    
+    bottom:40px;
+    left:35px;
+
+    width:750px;
+    font-family:'Raleway',sans-serif;
+}
+
+.title {
+    font-family:'Raleway',sans-serif;
+    font-weight:bold;
+    color:#5087B6;
+}
+
+#main {
+    position:relative;
+}
+
+#head {
+    position:relative;
+    width:100%;
+    height:20%;
+}
+
+
+#body {
+    position:relative;
+    width:100%;
+    height:100%;
+    /*border:2px solid gray;
+    border-radius:10px;*/
+}
+
+#content {
+    position:relative;
+    display:inline-block;
+    width:65%;
+    left:0px;
+    height:100%;
+    /*border:2px solid gray;
+    border-radius:10px;*/
+}
+
+#ads {
+    position:absolute;
+    display:inline-block;
+    width:25%;
+    right:0px;
+    height:100%;
+    /*border:2px solid gray;
+    border-radius:10px;*/}
+
+.valid {
+    position:absolute;
+    
+    text-align:center;
+    font-size:28px;
+    
+    width:20px;
+    height:20px;
+}
+
+.error {
+    position:absolute;
+    
+    color: red;
+    
+    width:380px;
+    height:30px;
+
+    font-family:'Raleway',sans-serif;
+}
+
+#foot {
+    position:relative;
+    bottom:0px;
+    
+    width:625px;
+    height:225px;
+    
+    margin-left:auto;
+    margin-right:auto;
+    
+    border:1px solid #ccc;
+    border-radius:10px;
+}
+
+.extras {
+    position:absolute;
+    
+    text-align: center;
+    
+    width:150px;
+    height:230px;
+
+}
+
+#trademark {
+    position:relative;
+    bottom:0px;
+    
+    text-align: center;
+    font-size:13px;
+    color:grey;
+    width:700px;
+    height:30px;
+    
+    margin-left:auto;
+    margin-right:auto;
 }
