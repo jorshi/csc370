@@ -55,7 +55,8 @@ CREATE TABLE favourites(
     user_id VARCHAR(255),
     post_id VARCHAR(255),
 
-    FOREIGN KEY (user_id) REFERENCES accounts(username) ON DELETE CASCADE
+    FOREIGN KEY (user_id) REFERENCES accounts(username) ON DELETE CASCADE,
+    FOREIGN KEY (post_id) REFERENCES posts(post_id) ON DELETE CASCADE
 );
 
 CREATE TABLE friends (
