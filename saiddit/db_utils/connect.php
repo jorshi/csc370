@@ -7,7 +7,7 @@ function db_connect() {
     $user = "saiddit_sys";
     $pass = "";
     $db = "saiddit";
-    $post = 3306;
+    $port = 3306;
 
     // Connect to mysql using subsaiddit_sys user
     $connection = mysqli_connect($host, $user, $pass, $db, $port) or die (mysql_error());

@@ -101,7 +101,7 @@
             <a>MY SUBSAIDDITS</a> <a>FRONT</a> <a>ALL</a> <a>RANDOM</a> | <a>ASKSAIDDIT</a> - <a>NEWS</a> - <a>VIDEOS</a> - <a>PICS</a> - <a>GAMING</a> - <a>WORLDNEWS</a> <a>MORE</a>
             
             <div id='nav_bar'>
-                <h1>:) Saiddit Homepage</h1>
+                <a href='homepage.php'><h1 id='logo'>:) Saiddit Homepage</h1></a>
                 
                 <div id='login_button'> Want to join? <a onclick='div_show()'>Log in or sign up</a> in seconds. | English </div>
             </div>

@@ -94,6 +94,15 @@ i {
     border:2px solid #5087B6;  
 }
 
+#logo{
+    position:absolute;
+    font-family:'Raleway',sans-serif;
+    color:black;
+    top:-15px;
+    left:5px;
+    border:1px solid black;
+}
+
 #login_button {
     position:absolute;
     right:0px;
