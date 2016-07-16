@@ -214,6 +214,7 @@ i {
     width:65%;
     left:0px;
     height:100%;
+    padding:10px;
     /*border:2px solid gray;
     border-radius:10px;*/
 }
@@ -224,6 +225,7 @@ i {
     width:25%;
     right:0px;
     height:100%;
+    padding:10px;
     /*border:2px solid gray;
     border-radius:10px;*/}
 
@@ -284,4 +286,20 @@ i {
 
     margin-left:auto;
     margin-right:auto;
+}
+
+.new {
+    width: 100%;
+    height: 50px;
+
+    text-align:center;
+    color:#5087B6;
+    font-size:20px;
+    background-color:#E3EDFA;
+
+    margin-left:auto;
+    margin-right:auto;
+
+    border:1px solid #5087B6;
+    border-radius:10px;
 }

@@ -21,6 +21,7 @@
             $error = sprintf("Query Failed: %s", mysql_error());
         } else {
             $_SESSION['signup_user'] = $username;
+            header("location: homepage.php");
         }
         mysqli_close($conn);
     }

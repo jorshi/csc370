@@ -3,7 +3,7 @@
     include('connect/login.php');
     include('connect/signup.php');
     include('connect/user.php');
-    include('logging.php');
+    include('utility/logging.php');
 
     $user = getSessionUser();
 ?>
@@ -18,7 +18,7 @@
         <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="static/js/post_handler.js"></script>
         <script>
-
+        	var logged_in = false;
             function div_show() {
                 var valid_names = ['valid_name', 'valid_password', 'valid_verpass', 'valid_user', 'valid_pass'];
                 for (i=0;i<5;i++){
@@ -30,6 +30,15 @@
 
             function div_hide(){
                 document.getElementById('popup_main').style.display = 'none';
+            }
+
+            function add_new() {
+            	if (!logged_in){
+            		div_show();
+            	}
+            	else {
+            		//new post form..
+            	}
             }
         </script>
         <script type="text/javascript" src="static/js/validateForm.js"></script>
@@ -99,8 +108,18 @@
 
             <div id='nav_bar'>
                 <h1>:) Saiddit Homepage</h1>
+                <div id='login_button' value='0'></div>
 
-                <div id='login_button'> Want to join? <a href='#' onclick='div_show()'>Log in or sign up</a> in seconds. | English </div>
+                <?php
+                	if ($user != NULL) {
+				    	echo "<script>document.getElementById('login_button').innerHTML = \"<a href='#' onclick=''>".$user."</a> <a href='#' onclick=''>(#)</a> |     | <a href='#' onclick=''><b>preferences</b></a> | <a href='logout.php'>logout</a> |\";</script>";
+				    	echo "<script>logged_in = true;</script>";
+				    }
+				    else{
+				    	echo "<script>document.getElementById('login_button').innerHTML = \"Want to join? <a href='#' onclick='div_show()'>Log in or sign up</a> in seconds. | English\";</script>";
+				    	echo "<script>logged_in = false;</script>";
+				    }
+                ?>        
             </div>
         </div>
 
@@ -111,6 +130,8 @@
                 <div class="list-group"></div>
             </div>
             <div id='ads'>
+            	<button class='new' id='new_link' >Submit a new link</button><br><br>
+            	<button class='new' id='new_post' onclick='add_new()'>Submit a new text post</button>
             </div>
         </div>
 
@@ -156,7 +177,7 @@
                 <a>saidditgifts</a>
             </div>
         </div>
-        <div id='trademark'>Use of this site constitutes acceptance of our User Agreement and Privacy Policy (updated). © 2016 saiddit inc. All rights reserved.<br>SAIDDIT and the smiley Logo are not registered trademarks of saiddit inc.</div>
+        <div id='trademark'>Use of this site constitutes acceptance of our User Agreement and Privacy Policy (updated). © 2016 saiddit inc. All rights reserved. SAIDDIT and the smiley Logo are not registered trademarks of saiddit inc.</div>
 
 <!-- POST TEMPLATE -->
         <div class="list-group-item post-template" style="display:none">

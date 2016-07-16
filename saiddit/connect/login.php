@@ -25,7 +25,7 @@
 	        $error = sprintf("Query Failed: %s", mysql_error());
 	    } else {
 	        $_SESSION['login_user'] = $username;
-	        header("location: profile.php");
+	        header("location: homepage.php");
 	    }
 
 	    mysqli_close($conn);
