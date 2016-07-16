@@ -1,7 +1,7 @@
 <?php
 
 include('connect.php');
-include('logging.php');
+include('../utility/logging.php');
 
 function getHomepagePosts($start, $num) {
 
@@ -15,6 +15,7 @@ function getHomepagePosts($start, $num) {
     $posts = array();
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
+            $row['vote_total'] = $row['upvotes'] - $row['downvotes'];
             array_push($posts, $row);
         }
     }

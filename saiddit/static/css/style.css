@@ -211,10 +211,15 @@ i {
 #content {
     position:relative;
     display:inline-block;
-    width:65%;
+    width:70%;
     left:0px;
     height:100%;
+<<<<<<< HEAD
     padding:10px;
+=======
+    padding-left: 20px;
+
+>>>>>>> 6b5ad91e6f950fca416f540f8e587a525712d1e8
     /*border:2px solid gray;
     border-radius:10px;*/
 }
@@ -302,4 +307,15 @@ i {
 
     border:1px solid #5087B6;
     border-radius:10px;
+}
+/* ------------ Posts ----*/
+.post-votes-wrapper {
+    padding-left: 10px;
+    padding-top: 3px;
+    text-align: center;
+}
+
+.vote-glyph {
+    padding-left: 2px;
+
 }

@@ -180,11 +180,23 @@
         <div id='trademark'>Use of this site constitutes acceptance of our User Agreement and Privacy Policy (updated). © 2016 saiddit inc. All rights reserved. SAIDDIT and the smiley Logo are not registered trademarks of saiddit inc.</div>
 
 <!-- POST TEMPLATE -->
-        <div class="list-group-item post-template" style="display:none">
-            <a href="#">
-                <h4 class="list-group-item-heading post-title"></h4>
-            </a>
-            <p class="list-group-item-text post-user"></p>
+        <div class="media panel panel-default post-template" style="display:none">
+            <div class="media-left post-votes-wrapper">
+                <span class="glyphicon glyphicon-chevron-up vote-glyph"></span>
+                <span class="post-votes"></span>
+                <span class="glyphicon glyphicon-chevron-down vote-glyph"></span>
+            </div>
+            <div class="media-left">
+                <img class="media-object" src="static/img/lil_s.png" height="64" width="64">
+            </div>
+            <div class="media-body">
+                <div class="media-heading">
+                    <a href="#">
+                        <h4 class="post-title"></h4>
+                    </a>
+                </div>
+                <p class="media-left post-info"><p>
+            </div>
         </div>
     </body>
 </html>

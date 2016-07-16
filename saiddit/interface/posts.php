@@ -1,6 +1,6 @@
 <?php
-include('connect/user.php');
-include('db_utils/post_factory.php');
+include('../connect/user.php');
+include('../db_utils/post_factory.php');
 
 $user = getSessionUser();
 $request = $GET;
