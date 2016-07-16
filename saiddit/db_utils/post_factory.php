@@ -1,16 +1,12 @@
 <?php
 
-include('connect.php');
 include('../utility/logging.php');
+include('subscribes_factory.php');
 
-function getHomepagePosts($start, $num) {
 
-    $conn = db_connect();
-    $query = sprintf(
-        "SELECT * FROM posts LIMIT %s,%s",
-        $start,
-        $num
-    );
+// Do query and return the list of posts
+function queryPosts($conn, $query) {
+
     $result = mysqli_query($conn, $query);
     $posts = array();
     if ($result->num_rows > 0) {
@@ -21,4 +17,25 @@ function getHomepagePosts($start, $num) {
     }
 
     return $posts;
+}
+
+
+function getHomepagePosts($conn, $start, $num, $user) {
+
+    if ($user != NULL) {
+        $subscribes = getUserSubscribes($conn, $user);
+        $query = sprintf(
+            "SELECT * from posts WHERE subsaiddit IN ('%s') ORDER BY publish_time",
+            implode("','", $subscribes)
+        );
+        writeLog($query);
+    }
+
+    $query = sprintf(
+        "SELECT * FROM posts ORDER BY publish_time LIMIT %s,%s",
+        $start,
+        $num
+    );
+
+    return queryPosts($conn, $query);
 }

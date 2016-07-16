@@ -1,13 +1,13 @@
 <?php
 include('../connect/user.php');
 include('../db_utils/post_factory.php');
+include('../db_utils/connect.php');
 
 $user = getSessionUser();
+$conn = db_connect();
 $request = $GET;
 
-if ($user == NULL) {
-    $posts = getHomepagePosts(0,250);
-    echo json_encode($posts);
-}
+$posts = getHomepagePosts($conn, 0,250, $user);
+echo json_encode($posts);
 
 ?>

@@ -19,7 +19,7 @@
 	    );
 
 	    $result = mysqli_query($conn, $query);
-	        
+
 	        // Check for successful user look up
 	    if (!$result) {
 	        $error = sprintf("Query Failed: %s", mysql_error());
