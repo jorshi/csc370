@@ -28,14 +28,13 @@ function getHomepagePosts($conn, $start, $num, $user) {
             "SELECT * from posts WHERE subsaiddit IN ('%s') ORDER BY publish_time",
             implode("','", $subscribes)
         );
-        writeLog($query);
+    } else {
+        $query = sprintf(
+            "SELECT * FROM posts ORDER BY publish_time LIMIT %s,%s",
+            $start,
+            $num
+        );
     }
-
-    $query = sprintf(
-        "SELECT * FROM posts ORDER BY publish_time LIMIT %s,%s",
-        $start,
-        $num
-    );
 
     return queryPosts($conn, $query);
 }
