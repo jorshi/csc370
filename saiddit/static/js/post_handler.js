@@ -9,7 +9,7 @@ function postCallback(data) {
         console.log(data[i]);
         newPost = postTemplate.clone();
         newPost.find('.post-title').text(data[i].title);
-        newPost.find('.post-user').text(data[i].author);
+        newPost.find('.post-user').text('Submitted by ' + data[i].author + ' at ' + data[i].publish_time);
         newPost.appendTo(postDiv);
         newPost.show();
     }

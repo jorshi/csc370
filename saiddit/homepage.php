@@ -163,7 +163,8 @@
             <a href="#">
                 <h4 class="list-group-item-heading post-title"></h4>
             </a>
-            <p class="list-group-item-text post-user"></p>
+            <div class="list-group-item-text">
+            </div>
         </div>
     </body>
 </html>
