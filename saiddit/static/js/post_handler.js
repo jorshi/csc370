@@ -1,7 +1,6 @@
 
 
 function postCallback(data) {
-
     var postDiv = $('#content');
     var postTemplate = $('.post-template');
 
