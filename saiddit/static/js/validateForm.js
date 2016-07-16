@@ -71,7 +71,7 @@ function validateForm(form, username, pass, verify) {
     // IF LOGIN FORM IS FILLED
     else {
         valid_names = ['valid_user', 'valid_pass'];
-        
+
         $.ajax({
             type: 'POST',
             url: 'userExists.php',
@@ -102,7 +102,7 @@ function validateForm(form, username, pass, verify) {
                     document.getElementById(valid_names[1]).style.color = 'red';
                     input_state[1] = false;
                     if (message_login == 'username is good'){
-                        message_login = 'Password is incorrect';                    
+                        message_login = 'Password is incorrect';
                     }
                 }
                 else{
@@ -111,7 +111,7 @@ function validateForm(form, username, pass, verify) {
                 }
             }
         });
-        document.getElementById('error_login').innerHTML = message_login;                   
+        document.getElementById('error_login').innerHTML = message_login;
     }
 
     for (i=0; i<4; i++) {
@@ -119,6 +119,6 @@ function validateForm(form, username, pass, verify) {
             return false;
         }
     }
-    
+
     return true;
 }
