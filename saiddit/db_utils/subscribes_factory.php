@@ -7,7 +7,7 @@ function getUserSubscribes($conn, $user) {
     }
 
     $query = sprintf(
-        "SELECT * from subscribes WHERE user_id = '%s'",
+        "SELECT subsaid_id from subscribes WHERE user_id = '%s'",
         $user
     );
 
@@ -19,7 +19,7 @@ function getUserSubscribes($conn, $user) {
             array_push($subscribes, $row);
         }
     }
-    
+
     return $subscribes;
 }
 ?>

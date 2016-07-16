@@ -23,7 +23,12 @@ function queryPosts($conn, $query) {
 function getHomepagePosts($conn, $start, $num, $user) {
 
     if ($user != NULL) {
-        $subscribes = getUserSubscribes($user, $conn);
+        $subscribes = getUserSubscribes($conn, $user);
+        $query = sprintf(
+            "SELECT * from posts WHERE subsaiddit IN ('%s') ORDER BY publish_time",
+            implode("','", $subscribes)
+        );
+        writeLog($query);
     }
 
     $query = sprintf(
