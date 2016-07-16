@@ -37,7 +37,7 @@
             		div_show();
             	}
             	else {
-            		//new post form..
+            		location.href = 'interface/new_post.php';
             	}
             }
         </script>
@@ -112,7 +112,7 @@
 
                 <?php
                 	if ($user != NULL) {
-				    	echo "<script>document.getElementById('login_button').innerHTML = \"<a href='#' onclick=''>".$user."</a> <a href='#' onclick=''>(#)</a> |     | <a href='#' onclick=''><b>preferences</b></a> | <a href='logout.php'>logout</a> |\";</script>";
+				    	echo "<script>document.getElementById('login_button').innerHTML = \"<a href='#' onclick=''>".$user."</a> <a href='#' onclick=''>(#)</a> |     | <a href='#' onclick=''><b>preferences</b></a> | <a href='connect/logout.php'>logout</a> |\";</script>";
 				    	echo "<script>logged_in = true;</script>";
 				    }
 				    else{
