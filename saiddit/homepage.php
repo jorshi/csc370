@@ -37,7 +37,7 @@
             		div_show();
             	}
             	else {
-            		//new post form..
+            		location.href = 'interface/new_post.php';
             	}
             }
         </script>

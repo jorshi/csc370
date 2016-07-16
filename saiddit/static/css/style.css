@@ -215,7 +215,7 @@ i {
     left:0px;
     height:100%;
     padding:10px;
-    padding-left: 20px;
+
     /*border:2px solid gray;
     border-radius:10px;*/
 }
@@ -228,7 +228,8 @@ i {
     height:100%;
     padding:10px;
     /*border:2px solid gray;
-    border-radius:10px;*/}
+    border-radius:10px;*/
+}
 
 .valid {
     position:absolute;
@@ -314,4 +315,38 @@ i {
 .vote-glyph {
     padding-left: 2px;
 
+}
+
+/* ------------------------------------------------------ NEW_POST ------------------------------------------------------ */
+
+#content_submit {
+    position:relative;
+    display:inline-block;
+    width:70%;
+    left:0px;
+    height:100%;
+    padding:10px;
+    padding-left: 20px;
+
+    border:2px solid gray;
+    border-radius:10px;
+}
+
+#ads_submit {
+    position:absolute;
+    display:inline-block;
+    width:25%;
+    right:0px;
+    height:100%;
+    padding:10px;
+    border:2px solid gray;
+    border-radius:10px;
+}
+
+.div_new_post {
+    background-color:#CBE4FA;
+    border:2px #CBE4FA;
+    border-radius:10px;
+    padding:5px;
+    min-height:50px;
 }
