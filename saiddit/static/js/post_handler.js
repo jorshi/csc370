@@ -8,13 +8,14 @@ function postCallback(data) {
     for (i = 0; i < data.length; i++) {
         console.log(data[i]);
         newPost = postTemplate.clone();
+        newPost.find('.post-votes').text(data[i].vote_total);
         newPost.find('.post-title').text(data[i].title);
-        newPost.find('.post-info').text(
+        postInfo = newPost.find('.post-info');
+        postInfo.text(
             'Submitted by ' + data[i].author +
-            ' at ' + data[i].publish_time +
-            ' to ' + '<a href="' + data[i].url + '">' +
-            data[i].subsaiddit + '</a>'
+            ' at ' + data[i].publish_time + ' to '
         );
+        postInfo.append('<a href="#">' + data[i].subsaiddit + '</a>');
         newPost.appendTo(postDiv);
         newPost.show();
     }
@@ -25,7 +26,7 @@ function getPosts() {
 
     $.ajax({
         method: "GET",
-        url: "posts.php",
+        url: "interface/posts.php",
         dataType: "json"
     }).done(postCallback);
 }
