@@ -13,8 +13,6 @@
 
     $user = getSessionUser();
     $request = $_GET;
-    
-
 ?>
 
 <!DOCTYPE html>
