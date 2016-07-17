@@ -23,8 +23,11 @@
 	        // Check for successful user look up
 	    if (!$result) {
 	        $error = sprintf("Query Failed: %s", mysql_error());
-	    } else {
-	        $_SESSION['login_user'] = $username;
+        }
+
+        // Only log user in if they are found
+        if (mysqli_num_rows($result) > 0) {
+            $_SESSION['login_user'] = $username;
 	        header("location: homepage.php");
 	    }
 

@@ -1,5 +1,5 @@
 <?php   
-    include('db_utils/connect.php');
+    include('connect.php');
     $conn = db_connect();
 
     if (isset($_POST['pass']) && isset($_POST['user'])) {

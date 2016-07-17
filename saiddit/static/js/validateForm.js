@@ -1,4 +1,6 @@
-function validateForm(form, username, pass, verify) {
+function validateFormSaiddit(form, username, pass, verify) {
+
+    console.log('here');
     var name = document.forms[form][username].value;
     var password = document.forms[form][pass].value;
 
@@ -22,7 +24,7 @@ function validateForm(form, username, pass, verify) {
         else if (message_reg != 'Username is required') {
             $.ajax({
                 type: 'POST',
-                url: 'userExists.php',
+                url: 'db_utils/userExists.php',
                 data: {user: name},
                 async: false,
                 success: function(data){
@@ -74,7 +76,7 @@ function validateForm(form, username, pass, verify) {
 
         $.ajax({
             type: 'POST',
-            url: 'userExists.php',
+            url: 'db_utils/userExists.php',
             data: {user: name},
             async: false,
             success: function(data){
@@ -93,7 +95,7 @@ function validateForm(form, username, pass, verify) {
 
         $.ajax({
             type: 'POST',
-            url: 'correctPass.php',
+            url: 'db_utils/correctPass.php',
             data: {pass: password, user: name},
             async: false,
             success: function(data){
