@@ -1,13 +1,19 @@
 <?php
 
-function printBanner($user, $request) {
+function printBanner($user, $subsaiddit) {
+
+    if ($subsaiddit == 'front') {
+        $title = "Homepage";
+    } else {
+        $title = ucfirst(strtolower($subsaiddit));
+    }
    
 ?>
     <div id='head'>
         <a>MY SUBSAIDDITS</a> <a>FRONT</a> <a>ALL</a> <a>RANDOM</a> | <a>ASKSAIDDIT</a> - <a>NEWS</a> - <a>VIDEOS</a> - <a>PICS</a> - <a>GAMING</a> - <a>WORLDNEWS</a> <a>MORE</a>
 
         <div id='nav_bar'> 
-            <h1 class="nav-title">:) Saiddit</h1><span id="page-title" class="nav-title">Homepage</span>
+            <a href = "homepage.php"><h1 class="nav-title">:) Saiddit</h1><a><span id="page-title" class="nav-title"><?php echo $title ?></span>
             <div id='login_button' value='0'></div>
 
             <?php
