@@ -27,7 +27,7 @@
         $subsaiddit = "front";
     }
 
-    if ($subsaiddit = "random") {
+    if ($subsaiddit == "random") {
         $subsaiddit = getRandom($conn);
     }
 ?>
