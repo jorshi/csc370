@@ -18,4 +18,7 @@ REPLACE INTO posts(title, author, subsaiddit, url, text, upvotes, downvotes) VAL
     ('Post alskda', 'test', 'funny', 'dajshd', 'knock knock lol', 100, 40);
 
 REPLACE INTO subscribes VALUES
-    ('john', 'photos');
+    ('john', 'photos'),
+    ('john', 'funny'),
+    ('test', 'funny');
+

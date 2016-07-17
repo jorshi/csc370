@@ -16,7 +16,7 @@ function getUserSubscribes($conn, $user) {
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            array_push($subscribes, $row);
+            array_push($subscribes, $row['subsaid_id']);
         }
     }
 
