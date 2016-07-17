@@ -10,13 +10,11 @@ function printHead($user) {
         <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="static/js/post_handler.js"></script>
         <script type="text/javascript" src="static/js/validateForm.js"></script>
+        <script type="text/javascript" src="static/js/clearForm.js"></script>
         <script>
         	var logged_in = false;
             function div_show() {
-                var valid_names = ['valid_name', 'valid_password', 'valid_verpass', 'valid_user', 'valid_pass'];
-                for (i=0;i<5;i++){
-                    document.getElementById(valid_names[i]).innerHTML = " ";
-                }
+                clearFormSaiddit();
                 document.getElementById('popup_main').style.overflow = 'scroll';
                 document.getElementById('popup_main').style.display = 'block';
             }

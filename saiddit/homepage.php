@@ -17,7 +17,6 @@
 
 <!DOCTYPE html>
 <html>
-
     <!-- Print the page head. html/head.php -->
     <?php printHead($user); ?>
 

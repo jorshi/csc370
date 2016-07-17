@@ -1,19 +1,18 @@
 function validateFormSaiddit(form, username, pass, verify) {
-
-    console.log('here');
+    clearFormSaiddit();
+    
     var name = document.forms[form][username].value;
     var password = document.forms[form][pass].value;
 
     var input_state = [true, true, true];
     var valid_names;
-    var message_reg = '';
-    var message_login = '';
-
+    
     //IF REG FORM IS FILLED
     if (verify != 1) {
+        alert('HERE1');
+        var message_reg = '';
         var verify_password = document.forms[form][verify].value;
         valid_names = ['valid_name', 'valid_password', 'valid_verpass'];
-
 
         if (name == null || name == "") {
             document.getElementById(valid_names[0]).innerHTML = 'X';
@@ -21,7 +20,7 @@ function validateFormSaiddit(form, username, pass, verify) {
             message_reg = 'Username is required';
             input_state[0] = false;
         }
-        else if (message_reg != 'Username is required') {
+        else {
             $.ajax({
                 type: 'POST',
                 url: 'db_utils/userExists.php',
@@ -40,8 +39,6 @@ function validateFormSaiddit(form, username, pass, verify) {
                     }
                 }
             });
-        }else {
-            document.getElementById(valid_names[0]).innerHTML = '';
         }
 
         if (password == null || password == "") {
@@ -64,59 +61,70 @@ function validateFormSaiddit(form, username, pass, verify) {
             document.getElementById(valid_names[2]).innerHTML = '';
         }
         document.getElementById('error_reg').innerHTML = message_reg;
-        for (i=0; i<4; i++) {
-            if (input_state[i] == false){
-                return false;
-            }
-        }
     }
     // IF LOGIN FORM IS FILLED
     else {
+        var message_login = '';
+        alert('HERE2');
         valid_names = ['valid_user', 'valid_pass'];
 
-        $.ajax({
-            type: 'POST',
-            url: 'db_utils/userExists.php',
-            data: {user: name},
-            async: false,
-            success: function(data){
-                if (data == false){
-                    document.getElementById(valid_names[0]).innerHTML = 'X';
-                    document.getElementById(valid_names[0]).style.color = 'red';
-                    input_state[0] = false;
-                    message_login = 'Username does not exist';
-                }
-                else{
-                    document.getElementById(valid_names[0]).innerHTML = '';
-                    message_login = 'username is good';
-                }
-            }
-        });
-
-        $.ajax({
-            type: 'POST',
-            url: 'db_utils/correctPass.php',
-            data: {pass: password, user: name},
-            async: false,
-            success: function(data){
-                if (data == false){
-                    document.getElementById(valid_names[1]).innerHTML = 'X';
-                    document.getElementById(valid_names[1]).style.color = 'red';
-                    input_state[1] = false;
-                    if (message_login == 'username is good'){
-                        message_login = 'Password is incorrect';
+        if (name == null || name == "") {
+            document.getElementById(valid_names[0]).innerHTML = 'X';
+            document.getElementById(valid_names[0]).style.color = 'red';
+            message_login = 'Username is required';
+            input_state[0] = false;
+        }
+        else {
+            $.ajax({
+                type: 'POST',
+                url: 'db_utils/userExists.php',
+                data: {user: name},
+                async: false,
+                success: function(data){
+                    if (data == false){
+                        document.getElementById(valid_names[0]).innerHTML = 'X';
+                        document.getElementById(valid_names[0]).style.color = 'red';
+                        input_state[0] = false;
+                        message_login = 'Username does not exist';
+                    }
+                    else{
+                        document.getElementById(valid_names[0]).innerHTML = '';
+                        message_login = '';
                     }
                 }
-                else{
-                    document.getElementById(valid_names[1]).innerHTML = '';
-                    message_login = '';
+            });    
+        }
+        
+        if (password == null || password == "") {
+            document.getElementById(valid_names[1]).innerHTML = 'X';
+            document.getElementById(valid_names[1]).style.color = 'red';
+            message_login += '<br>Password is required';
+            input_state[1] = false;
+        }
+        else {
+            $.ajax({
+                type: 'POST',
+                url: 'db_utils/correctPass.php',
+                data: {pass: password, user: name},
+                async: false,
+                success: function(data){
+                    if (data == false){
+                        document.getElementById(valid_names[1]).innerHTML = 'X';
+                        document.getElementById(valid_names[1]).style.color = 'red';
+                        input_state[1] = false;                        
+                        message_login += 'Password is incorrect';
+                    }
+                    else{
+                        document.getElementById(valid_names[1]).innerHTML = '';
+                        message_login += '';
+                    }
                 }
-            }
-        });
+            });
+        }        
         document.getElementById('error_login').innerHTML = message_login;
     }
 
-    for (i=0; i<4; i++) {
+    for (i=0; i<input_state.length; i++) {
         if (input_state[i] == false){
             return false;
         }

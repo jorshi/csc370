@@ -16,7 +16,7 @@ function printBanner($user, $request) {
                     echo "<script>logged_in = true;</script>";
                 }
                 else{
-                    echo "<script>document.getElementById('login_button').innerHTML = \"Want to join? <a href='#' onclick='div_show()'>Log in or sign up</a> in seconds. | English\";</script>";
+                    echo "<script>document.getElementById('login_button').innerHTML = \"Want to join? <a href='#' onclick='div_show()'>Log in or sign up</a> in seconds. | <a><b>English</b></a>\";</script>";
                     echo "<script>logged_in = false;</script>";
                 }
             ?>        
