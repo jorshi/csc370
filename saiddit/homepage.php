@@ -1,5 +1,6 @@
 <?php
     include('db_utils/connect.php');
+    include('db_utils/subsaiddit_factory.php');
     include('connect/login.php');
     include('connect/signup.php');
     include('connect/user.php');
@@ -11,8 +12,24 @@
     include('html/footer.php');
     include('html/post_template.php');
 
+    $conn = db_connect();
     $user = getSessionUser();
     $request = $_GET;
+    $error = NULL;
+
+    if (isset($request['s'])) {
+        $subsaiddit = $request['s'];
+        if (!isSubsaiddit($conn, $subsaiddit))  {
+            $error = "Subsaiddit does not exist";
+            $subsaiddit = "front";
+        }
+    } else {
+        $subsaiddit = "front";
+    }
+
+    if ($subsaiddit = "random") {
+        $subsaiddit = getRandom($conn);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +44,8 @@
         <?php printMain($user); ?>
 
         <!--HEAD BANNER [the top area of page where headers, nav bar, etc. are]-->
-        <?php printBanner($user, $request); ?>
+        <?php printBanner($user, $subsaiddit); ?>
+        
 
         <!-- BODY [the area for saiddit and subsaiddit content and advertisement (like on reddit)]-->
             <div id='body'>
@@ -45,6 +63,8 @@
 
         <!-- POST TEMPLATE -->
         <?php printPostTemplate($user) ?>
+
+        <input style="display:none" id="subsaiddit" value="<?php echo $subsaiddit ?>"/>
 
     </body>
 </html>
