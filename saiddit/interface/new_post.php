@@ -44,45 +44,89 @@
 <!-- BODY [the area for saiddit and subsaiddit content and advertisement (like on reddit)]-->
         <div id='body'>
             <div id='content_submit'>
-            	submit to saiddit
+            	<h3 style='text-align:left;'>submit to saiddit</h3>
 
 				<div class="container" style='width:80%; margin-left:0;'>
 					<ul class="nav nav-tabs">
 						<li class="active"><a data-toggle="tab" href="#link">Link</a></li>
-						<li><a data-toggle="tab" href="#text">Text</a></li>
+						<li ><a data-toggle="tab" href="#text">Text</a></li>
 					</ul>
 
 					<div class="tab-content">
 					    <div id="link" class="tab-pane fade in active">
-						    <h3>Link</h3>
-						   	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <br>
+                            <div id= 'warning_new_post'>
+                                You are submitting a link. The key to a successful submission is interesting content and a descriptive title.
+                            </div>
+                            </br>
+
+						    <form id='post_link_form' name='post_link_form' action='' method='post' onsubmit=''>
+                                <div class='div_new_post' id='title_text_form'>
+                                    <h4>url</h4><br>
+                                    <textarea rows='4' cols='97' required='required'></textarea>
+                                </div>
+                                
+                                <br>
+                                <div class='div_new_post' id='title_text_form'>
+                                    <h4>title</h4><br>
+                                    <textarea rows='4' cols='97' required='required'></textarea>
+                                </div>
+                                
+                                <br>
+                                <div class='div_new_post' id='title_text_form'>
+                                    <h4>choose a subsaiddit</h4><br>
+                                    <textarea rows='4' cols='97' required='required'></textarea>
+                                    <br> your subscribed subsaiddits
+                                </div>
+                                
+                                <br>
+                                <div class='div_new_post' id='options_text_form'>
+                                    <h4>options</h4><br>
+                                    <input type='checkbox'> Send replies to my inbox            
+                                </div>
+                                <br>
+                                <input type='submit' value='submit' id='link_submit' style='position:relative; left:0px;'>                  
+                            </form>
 						</div>
 						
 						<div id="text" class="tab-pane fade">
-						    <h3>Text</h3>
-						    <form id='post_text_form' name='post_text_form' action='' method='post' onsubmit=''>
+                            <br>
+						    <div id= 'warning_new_post'>
+                                You are submitting a text-based post. Speak your mind. A title is required, but expanding further in the text field is not. Beginning your title with "vote up if" is violation of intergalactic law.
+                            </div>
+						    </br>
+                            
+                            <form id='post_text_form' name='post_text_form' action='' method='post' onsubmit=''>
 								<div class='div_new_post' id='title_text_form'>
-									title<br>
-									<textarea rows='4' cols='90'></textarea>
-								</div>
+                                    <h4>title</h4><br>
+                                    <textarea rows='4' cols='97' required='required'></textarea>
+                                </div>
 								<br>
-								<div class='div_new_post' id='text_form'>
-									text (optional)<br>
-									<textarea rows='4' cols='90'></textarea>
-								</div>
+                                <div class='div_new_post' id='title_text_form'>
+                                    <h4>text (optional)</h4><br>
+                                    <textarea rows='4' cols='97'></textarea>
+                                    <div style='position:absolute; right:5px; top:5px;'><a href='#'>content policy</a><t> <a href='#'>formatting help</a></div>
+                                </div>
 								<br>
-								<div class='div_new_post' id='subsaiddit_form'>
-									choose a subsaiddit<br>
-									<textarea rows='4' cols='90'></textarea>
-								</div>
-								<br>
+								<div class='div_new_post' id='title_text_form'>
+                                    <h4>choose a subsaiddit</h4><br>
+                                    <textarea rows='4' cols='97' required='required'></textarea>
+                                    <br> your subscribed subsaiddits
+                                </div>
+								
+                                <br>
 								<div class='div_new_post' id='options_text_form'>
-									options<br>
-									<input type='text'>
-
-									<br>your subscribed subsaiddits
-									<div id='subscribed'></div>
+									<h4>options</h4><br>
+									<input type='checkbox'> Send replies to my inbox			
 								</div>
+                                <br>
+
+                                <div class='div_new_post' style='background-color:#E3EDFA; '>
+                                    please be mindful of saiddit's <a href='#'><b>content policy</b></a> and practice <a href='#'><b>good saiddiquette</b></a>        
+                                </div>
+                                <br>
+
+                                <input type='submit' value='submit' id='text_submit' style='position:relative; left:0px;'>    
 							</form>
 					    </div>
 					</div>
