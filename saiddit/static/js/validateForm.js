@@ -9,7 +9,6 @@ function validateFormSaiddit(form, username, pass, verify) {
     
     //IF REG FORM IS FILLED
     if (verify != 1) {
-        alert('HERE1');
         var message_reg = '';
         var verify_password = document.forms[form][verify].value;
         valid_names = ['valid_name', 'valid_password', 'valid_verpass'];
@@ -65,7 +64,6 @@ function validateFormSaiddit(form, username, pass, verify) {
     // IF LOGIN FORM IS FILLED
     else {
         var message_login = '';
-        alert('HERE2');
         valid_names = ['valid_user', 'valid_pass'];
 
         if (name == null || name == "") {
