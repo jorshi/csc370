@@ -38,6 +38,7 @@
 
         <!-- BODY [the area for saiddit and subsaiddit content and advertisement (like on reddit)]-->
             <div id='body'>
+            <br>
             <div id='content_submit'>
             	<h3 style='text-align:left;'>create a saiddit</h3>
 
@@ -51,86 +52,30 @@
 					    <div id="link" class="tab-pane fade in active">
 
 						    <form id='post_link_form' name='post_link_form' action='' method='post' onsubmit=''>
-                                <div class='div_new_post' id='title_text_form'>
-                                    <h4>name</h4>
-                                    <p>no spaces, e.g., "books" or "bookclub". avoid using solely trademarked names, <br>
-                                    e.g. use "FansOfAcme" instead of "Acme". once chosen, this name cannot be changed.</p>
-                                    <textarea rows='4' cols='97' required='required'></textarea>
-                                </div>
                                 
                                 <br>
                                 <div class='div_new_post' id='title_text_form'>
                                     <h4>title</h4>
                                     <p>e.g., books: made from trees or pixels. recommendations, news, or thoughts</p>
-                                    <textarea rows='4' cols='97' required='required'></textarea>
+                                    <textarea rows='1' cols='97' required='required'></textarea>
                                 </div>
                                 
                                 <br>
                                 <div class='div_new_post' id='title_text_form'>
                                     <h4>description</h4>
                                     <p>Appears in search results and social media links. 500 characters max.</p>
-                                    <textarea rows='4' cols='97' required='required'></textarea>
-                                    <br> your subscribed subsaiddits
-                                </div>
-                                
-                                <br>
-                                <div class='div_new_post' id='title_text_form'>
-                                    <h4>sidebar</h4>
-                                    <p>shown in the sidebar of your subreddit. 5120 characters max.</p>
-                                    <textarea rows='4' cols='97' required='required'></textarea>
+                                    <textarea rows='3' cols='97' required='required'></textarea>
                                     <br> your subscribed subsaiddits
                                 </div>
                                     
                                 <br>
-                                <div class='div_new_post' id='title_text_form'>
-                                    <h4>submission text </h4>
-                                    <p>text to show on submission page. 1024 characters max.</p>
-                                    <textarea rows='4' cols='97' required='required'></textarea>
-                                </div>
-                                <input type='submit' value='submit' id='link_submit' style='position:relative; left:0px;'>                  
+                                <div class='div_new_post' id='options_text_form'>
+                                    <h4>frontpage</h4><br>
+                                    <input type='checkbox'> Is this a frontpage subsaiddit?           
+                                </div>                 
                             </form>
 						</div>
 						
-						<div id="text" class="tab-pane fade">
-                            <br>
-						    <div id= 'warning_new_post'>
-                                You are submitting a text-based post. Speak your mind. A title is required, but expanding further in the text field is not. Beginning your title with "vote up if" is violation of intergalactic law.
-                            </div>
-						    </br>
-                            
-                            <form id='post_text_form' name='post_text_form' action='' method='post' onsubmit=''>
-								<div class='div_new_post' id='title_text_form'>
-                                    <h4>title</h4><br>
-                                    <textarea rows='4' cols='97' required='required'></textarea>
-                                </div>
-								<br>
-                                <div class='div_new_post' id='title_text_form'>
-                                    <h4>text (optional)</h4><br>
-                                    <textarea rows='4' cols='97'></textarea>
-                                    <div style='position:absolute; right:5px; top:5px;'><a href='#'>content policy</a><t> <a href='#'>formatting help</a></div>
-                                </div>
-								<br>
-								<div class='div_new_post' id='title_text_form'>
-                                    <h4>choose a subsaiddit</h4><br>
-                                    <textarea rows='4' cols='97' required='required'></textarea>
-                                    <br> your subscribed subsaiddits
-                                </div>
-								
-                                <br>
-								<div class='div_new_post' id='options_text_form'>
-									<h4>options</h4><br>
-									<input type='checkbox'> Send replies to my inbox			
-								</div>
-                                <br>
-
-                                <div class='div_new_post' style='background-color:#E3EDFA; '>
-                                    please be mindful of saiddit's <a href='#'><b>content policy</b></a> and practice <a href='#'><b>good saiddiquette</b></a>        
-                                </div>
-                                <br>
-
-                                <input type='submit' value='submit' id='text_submit' style='position:relative; left:0px;'>    
-							</form>
-					    </div>
 					</div>
 				</div>
             </div>
@@ -139,10 +84,6 @@
             <div id='ads_submit'>
             </div>
         </div>
-
-
-            <div id='ads_submit'>
-            </div>
         </div>
 
         <!-- FOOT [as seen in reddit there is a bottom area with some links (just for show)]-->
