@@ -5,8 +5,8 @@ USE saiddit;
 
 # Test user
 REPLACE INTO accounts(username, password) VALUES
-    ('john', SHA2('123', 256)),
-    ('test', SHA2('abc', 256));
+    ('john', SHA2('123somesortofsalt', 256)),
+    ('test', SHA2('abcsomesortofsalt', 256));
 
 REPLACE INTO subsaiddits(title, description, front_page, creator_key) VALUES
     ('funny', 'Funny posts yolo', 1, 'test'),

@@ -33,3 +33,17 @@ function getRandom($conn) {
 
     return NULL;
 }
+
+function getFrontPage($conn) {
+
+    $query = "SELECT title FROM subsaiddits WHERE front_page = 1 ORDER BY title";
+    $result = mysqli_query($conn, $query);
+    $subsaiddits = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($subsaiddits, $row);
+        }
+    }
+
+    return $subsaiddits;
+}

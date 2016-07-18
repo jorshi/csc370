@@ -43,11 +43,10 @@
         <?php printMain($user); ?>
 
         <!--HEAD BANNER [the top area of page where headers, nav bar, etc. are]-->
-        <?php printBanner($user, $subsaiddit); ?>
-        
+        <?php printBanner($user, $subsaiddit, $conn); ?>
 
         <!-- BODY [the area for saiddit and subsaiddit content and advertisement (like on reddit)]-->
-            <div id='body'>
+            <div id='body' class="container-fluid">
                 <div id='content'>
                     <div class="list-group"></div>
                 </div>
