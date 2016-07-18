@@ -26,6 +26,7 @@
 
 
 <!--HEAD [the top area of page where headers, nav bar, etc. are]-->
+
         <div id='head'>
             <a>MY SUBSAIDDITS</a> <a>FRONT</a> <a>ALL</a> <a>RANDOM</a> | <a>ASKSAIDDIT</a> - <a>NEWS</a> - <a>VIDEOS</a> - <a>PICS</a> - <a>GAMING</a> - <a>WORLDNEWS</a> <a>MORE</a>
 

@@ -10,13 +10,13 @@ function printMain($user) {
                 <form id='register_form' name='register_form' action='' method='post' onsubmit='return validateFormSaiddit("register_form", "username_new", "password_new", "verify_password")'>
                     <div class='title'>CREATE A NEW ACCOUNT</div>
                     <input type='text' id='username_new' name='username_new' placeholder='choose a username'>
-                    <div class='valid' id='valid_name' style='top:42px; left:380px;'> </div>
+                    <div class='valid' id='valid_name' style='top:45px; left:340px;'> </div>
 
                     <input type='text' id='password_new' name='password_new' placeholder='password'>
-                    <div class='valid' id='valid_password' style='top:89px; left:380px;'> </div>
+                    <div class='valid' id='valid_password' style='top:97px; left:340px;'> </div>
 
                     <input type='text' id='verify_password' name='verify_password' placeholder='verify password'>
-                    <div class='valid' id='valid_verpass' style='top:138px; left:380px;'> </div>
+                    <div class='valid' id='valid_verpass' style='top:150px; left:340px;'> </div>
 
                     <input type='text' id='email' name='email' placeholder='email (optional)'>
                     <br>
@@ -29,7 +29,7 @@ function printMain($user) {
                     <br>
                     <input type='submit' id='submit_reg' name='submit_reg' value='SIGN UP'>
 
-                    <div class='error' id='error_reg' style='bottom:100px; left:30px'></div>
+                    <div class='error' id='error_reg' style='bottom:80px; left:30px'></div>
                 </form>
 
                 <div id='disclaimer'>By signing up, you agree to our <a>Terms</a> and that you have read our <a>Privacy Policy</a> and <a>Content Policy.</a> </div>
@@ -39,10 +39,10 @@ function printMain($user) {
                     <div class='title'>LOG IN</div>
 
                     <input type='text' id='username' name='username' placeholder='username'>
-                    <div class='valid' id='valid_user' style='top:42px; right:40px;'> </div>
+                    <div class='valid' id='valid_user' style='top:45px; right:20px;'> </div>
 
                     <input type='text' id='password' name='password' placeholder='password'>
-                    <div class='valid' id='valid_pass' style='top:89px; right:40px'> </div>
+                    <div class='valid' id='valid_pass' style='top:95px; right:20px'> </div>
 
                     <br>
                     <br>
@@ -51,7 +51,7 @@ function printMain($user) {
                     <br>
                     <input type='submit' id='submit_login' name='submit_login' value='LOG IN'>
 
-                    <div class='error' id='error_login' style='bottom:250px; right:30px'></div>
+                    <div class='error' id='error_login' style='bottom:250px; right:150px'></div>
                 </form>
             </div>
         </div>
