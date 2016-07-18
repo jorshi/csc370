@@ -18,8 +18,6 @@
         <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
         <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="../static/js/post_handler.js"></script>
-
     </head>
     <body>
 

@@ -26,7 +26,7 @@ function getPosts(postData) {
 
     $.ajax({
         method: "GET",
-        url: "interface/posts.php",
+        url: "/interface/posts.php",
         data: postData,
         dataType: "json"
     }).done(postCallback);
