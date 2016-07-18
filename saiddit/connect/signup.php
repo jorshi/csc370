@@ -1,5 +1,10 @@
 <?php
-    session_start();
+
+    //checks to see if the session is started before starting it.
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 
     // Check to make sure the username and password fields have been filled
     if (isset($_POST['submit_reg'])) {
