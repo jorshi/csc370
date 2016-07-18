@@ -23,12 +23,12 @@ function printHead($user) {
                 document.getElementById('popup_main').style.display = 'none';
             }
 
-            function add_new() {
+            function add_new(type) {
             	if (!logged_in){
             		div_show();
             	}
             	else {
-            		location.href = 'interface/new_post.php';
+            		location.href = 'interface/new_post.php?form='+type;
             	}
             }
         </script>

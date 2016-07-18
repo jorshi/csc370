@@ -337,9 +337,6 @@ i {
     height:100%;
     padding:10px;
     padding-left: 20px;
-
-    border:2px solid gray;
-    border-radius:10px;
 }
 
 #ads_submit {
@@ -349,12 +346,12 @@ i {
     right:0px;
     height:100%;
     padding:10px;
-    border:2px solid gray;
-    border-radius:10px;
+
 }
 
 .div_new_post {
-
+	position:relative;
+	width:100%;
     background-color:#CBE4FA;
     font-size:15px;
     border:2px #CBE4FA;
@@ -373,6 +370,10 @@ i {
     width:100%;
     font-size:20px;
     background-color:#FFDDA2;
-    border:2px #FF0000;
+    border:1px solid red;
     padding:5px;
+}
+
+.textarea_form{
+	width:100%;
 }

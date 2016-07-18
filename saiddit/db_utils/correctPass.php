@@ -5,7 +5,8 @@
     if (isset($_POST['pass']) && isset($_POST['user'])) {
         $password = $_POST['pass'];
         $user = $_POST['user'];
-        
+        $salt = 'somesortofsaltstring';
+
         $query = sprintf(
             "SELECT password from accounts WHERE username = '%s'",
             mysqli_real_escape_string($conn, $user)
@@ -19,7 +20,7 @@
 
         $row = mysqli_fetch_row($checkPass);
         
-        if ($row[0] == hash('sha256', $password)) {
+        if ($row[0] == hash('sha256', $password).hash('sha256', $salt)) {
             $result = true;
         }
         else{

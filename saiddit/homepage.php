@@ -52,8 +52,8 @@
                     <div class="list-group"></div>
                 </div>
                 <div id='ads'>
-                    <button class='new' id='new_link' >Submit a new link</button><br><br>
-                    <button class='new' id='new_post' onclick='add_new()'>Submit a new text post</button><br><br>
+                    <button class='new' id='new_link' onclick='add_new("link")'>Submit a new link</button><br><br>
+                    <button class='new' id='new_post' onclick='add_new("text")'>Submit a new text post</button><br><br>
                     <button class='new' id='new_post' >Create your own Subsaiddit!</button>
                 </div>
             </div>

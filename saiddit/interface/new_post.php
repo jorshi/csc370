@@ -2,8 +2,12 @@
     include('../db_utils/connect.php');
     include('../connect/user.php');
     include('../utility/logging.php');
+    include('../interface/submit_text_post.php');
+    include('../interface/submit_url_post.php');
 
+    include('../html/footer.php');
     $user = getSessionUser();
+    $title = 'new post';
 ?>
 
 <!DOCTYPE html>
@@ -31,26 +35,24 @@
             <a>MY SUBSAIDDITS</a> <a>FRONT</a> <a>ALL</a> <a>RANDOM</a> | <a>ASKSAIDDIT</a> - <a>NEWS</a> - <a>VIDEOS</a> - <a>PICS</a> - <a>GAMING</a> - <a>WORLDNEWS</a> <a>MORE</a>
 
             <div id='nav_bar'>
-                <h1>:) Saiddit Submit</h1>
-                <div id='login_button' value='0'></div>
+                <a href='homepage.php'><h1>:) Saiddit Submit</h1></a>
+                <div id='login_button'></div>
 
                 <?php
 			    	echo "<script>document.getElementById('login_button').innerHTML = \"<a href='#' onclick=''>".$user."</a> <a href='#' onclick=''>(#)</a> |     | <a href='#' onclick=''><b>preferences</b></a> | <a href='logout.php'>logout</a> |\";</script>";
-			    	echo "<script>logged_in = true;</script>";
                 ?>        
             </div>
         </div>
-
 
 <!-- BODY [the area for saiddit and subsaiddit content and advertisement (like on reddit)]-->
         <div id='body'>
             <div id='content_submit'>
             	<h3 style='text-align:left;'>submit to saiddit</h3>
 
-				<div class="container" style='width:80%; margin-left:0;'>
+				<div class="container" style='width:65%; margin-left:0;'>
 					<ul class="nav nav-tabs">
-						<li class="active"><a data-toggle="tab" href="#link">Link</a></li>
-						<li ><a data-toggle="tab" href="#text">Text</a></li>
+						<li id= "link_li" class="active"><a  data-toggle="tab" href="#link">Link</a></li>
+						<li id= "text_li" class=""><a  data-toggle="tab" href="#text">Text</a></li>
 					</ul>
 
 					<div class="tab-content">
@@ -61,32 +63,32 @@
                             </div>
                             </br>
 
-						    <form id='post_link_form' name='post_link_form' action='' method='post' onsubmit=''>
-                                <div class='div_new_post' id='title_text_form'>
-                                    <h4>url</h4><br>
-                                    <textarea rows='4' cols='97' required='required'></textarea>
+						    <form id='post_link_form' name='post_link_form' action='' method='post'>
+                                <div class='div_new_post' >
+                                    <h3 style='text-align:left;'>url</h3><br>
+                                    <textarea class='textarea_form' rows='4' id='url_link_form' name='url_link_form' cols='97' required='required'></textarea>
                                 </div>
                                 
                                 <br>
-                                <div class='div_new_post' id='title_text_form'>
-                                    <h4>title</h4><br>
-                                    <textarea rows='4' cols='97' required='required'></textarea>
+                                <div class='div_new_post' >
+                                    <h3 style='text-align:left;'>title</h3><br>
+                                    <textarea class='textarea_form' rows='4' id='title_link_form' name='title_link_form' cols='97' required='required'></textarea>
                                 </div>
                                 
                                 <br>
-                                <div class='div_new_post' id='title_text_form'>
-                                    <h4>choose a subsaiddit</h4><br>
-                                    <textarea rows='4' cols='97' required='required'></textarea>
+                                <div class='div_new_post' >
+                                    <h3 style='text-align:left;'>choose a subsaiddit</h3><br>
+                                    <textarea class='textarea_form' rows='4' id='subsaiddit_link_form' name='subsaiddit_link_form' cols='97' required='required'></textarea>
                                     <br> your subscribed subsaiddits
                                 </div>
                                 
                                 <br>
-                                <div class='div_new_post' id='options_text_form'>
-                                    <h4>options</h4><br>
-                                    <input type='checkbox'> Send replies to my inbox            
+                                <div class='div_new_post' >
+                                    <h3 style='text-align:left;'>options</h3><br>
+                                    <input type='checkbox' id='options_link_form' name='options_link_form'> Send replies to my inbox            
                                 </div>
                                 <br>
-                                <input type='submit' value='submit' id='link_submit' style='position:relative; left:0px;'>                  
+                                <input type='submit' value='submit' id='submit_link' name='submit_link' style='position:relative; left:0px;'>                  
                             </form>
 						</div>
 						
@@ -97,28 +99,28 @@
                             </div>
 						    </br>
                             
-                            <form id='post_text_form' name='post_text_form' action='' method='post' onsubmit=''>
-								<div class='div_new_post' id='title_text_form'>
-                                    <h4>title</h4><br>
-                                    <textarea rows='4' cols='97' required='required'></textarea>
+                            <form id='post_text_form' name='post_text_form' action='' method='post'>
+								<div class='div_new_post'>
+                                    <h3 style='text-align:left;'>title</h3><br>
+                                    <textarea class='textarea_form' id='title_text_form' name='title_text_form' rows='4' cols='97' required='required'></textarea>
                                 </div>
 								<br>
-                                <div class='div_new_post' id='title_text_form'>
-                                    <h4>text (optional)</h4><br>
-                                    <textarea rows='4' cols='97'></textarea>
+                                <div class='div_new_post' >
+                                    <h3 style='text-align:left;'>text (optional)</h3><br>
+                                    <textarea class='textarea_form' id='text_text_form' name='text_text_form' rows='4' cols='97'></textarea>
                                     <div style='position:absolute; right:5px; top:5px;'><a href='#'>content policy</a><t> <a href='#'>formatting help</a></div>
                                 </div>
 								<br>
-								<div class='div_new_post' id='title_text_form'>
-                                    <h4>choose a subsaiddit</h4><br>
-                                    <textarea rows='4' cols='97' required='required'></textarea>
+								<div class='div_new_post' >
+                                    <h3 style='text-align:left;'>choose a subsaiddit</h3><br>
+                                    <textarea class='textarea_form' id='subsaiddit_text_form' name='subsaiddit_text_form' rows='4' cols='97' required='required'></textarea>
                                     <br> your subscribed subsaiddits
                                 </div>
 								
                                 <br>
-								<div class='div_new_post' id='options_text_form'>
-									<h4>options</h4><br>
-									<input type='checkbox'> Send replies to my inbox			
+								<div class='div_new_post' >
+									<h3 style='text-align:left;'>options</h3><br>
+									<input type='checkbox' id='options_text_form' name='options_text_form'> Send replies to my inbox			
 								</div>
                                 <br>
 
@@ -127,7 +129,7 @@
                                 </div>
                                 <br>
 
-                                <input type='submit' value='submit' id='text_submit' style='position:relative; left:0px;'>    
+                                <input type='submit' value='submit' id='submit_text' name='submit_text' style='position:relative; left:0px;'>    
 							</form>
 					    </div>
 					</div>
@@ -140,47 +142,27 @@
         </div>
 
 <!-- FOOT [as seen in reddit there is a bottom area with some links (just for show)]-->
-        <div id='foot'>
-            <div class='extras' style='top:5px; left:5px;'>
-                <a><h3>about</h3></a>
-                <a>blog</a><br>
-                <a>about</a><br>
-                <a>source code</a><br>
-                <a>advertise</a><br>
-                <a>jobs</a>
+            <?php printFooter($user); ?>
+        <script>
+            var i = parent.document.URL.substring(parent.document.URL.indexOf('var='), parent.document.URL.length);
+            var submit_type = i.substr(i.length - 4);
 
-            </div>
+            //var button = document.getElementById('li')
+            if (submit_type == 'link') {
+                document.getElementById('link_li').className = "active";
+                document.getElementById('text_li').className = "";
 
-            <div class='vr' style='top:40px; left:160px; height:150px;'></div>
+                document.getElementById('link').className = "tab-pane fade in active";
+                document.getElementById('text').className = "tab-pane fade";
+            }else {
+                document.getElementById('text_li').className = "active";
+                document.getElementById('link_li').className = "";
 
-            <div class='extras' style='top:5px; left:160px;'>
-                <a><h3>help</h3></a>
-                <a>site rules</a><br>
-                <a>FAQ</a><br>
-                <a>wiki</a><br>
-                <a>saiddiquette</a><br>
-                <a>transparency</a><br>
-                <a>contact us</a>
-            </div>
-
-            <div class='vr' style='top:40px; left:312px; height:150px;'></div>
-
-            <div class='extras' style='top:5px; right:160px;'>
-                <a><h3>apps and tools</h3></a>
-                <a>Saiddit for iPhone</a><br>
-                <a>Saiddit for Android</a><br>
-                <a>mobile website</a><br>
-                <a>buttons</a>
-            </div>
-
-            <div class='vr' style='top:40px; right:160px; height:150px;'></div>
-
-            <div class='extras' style='top:5px; right:5px;'>
-                <a><h3><3</h3></a>
-                <a>saiddit gold</a><br>
-                <a>saidditgifts</a>
-            </div>
-        </div>
-        <div id='trademark'>Use of this site constitutes acceptance of our User Agreement and Privacy Policy (updated). © 2016 saiddit inc. All rights reserved. SAIDDIT and the smiley Logo are not registered trademarks of saiddit inc.</div>
+                document.getElementById('text').className = "tab-pane fade in active";
+                document.getElementById('link').className = "tab-pane fade";
+            }
+        </script>
     </body>
+
+        
 </html>
