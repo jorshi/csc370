@@ -26,7 +26,7 @@ CREATE TABLE  subsaiddits(
 
 CREATE TABLE posts (
     post_id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
+    title VARCHAR(1024) NOT NULL,
     author VARCHAR(255) NOT NULL,
     publish_time DATETIME DEFAULT NOW(),
     edit_time DATETIME DEFAULT NOW(),

@@ -8,12 +8,14 @@ function printPostTemplate($user) {
             <span class="post-votes"></span>
             <span class="glyphicon glyphicon-chevron-down vote-glyph"></span>
         </div>
+        <!-- Leave out the image for now
         <div class="media-left">
             <img class="media-object" src="static/img/lil_s.png" height="64" width="64">
         </div>
+        -->
         <div class="media-body">
             <div class="media-heading">
-                <a href="#">
+                <a href="#" class="post-url">
                     <h4 class="post-title"></h4>
                 </a>
             </div>

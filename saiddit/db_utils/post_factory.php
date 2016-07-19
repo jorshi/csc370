@@ -25,14 +25,19 @@ function getHomepagePosts($conn, $start, $num, $user) {
     if ($user != NULL) {
         $subscribes = getUserSubscribes($conn, $user);
         $query = sprintf(
-            "SELECT * from posts WHERE subsaiddit IN ('%s') ORDER BY publish_time",
-            mysqli_real_escape_string($conn, implode("','", $subscribes))
+            "SELECT * from posts WHERE subsaiddit IN ('%s') ORDER BY (upvotes - downvotes) LIMIT %s,%s",
+            implode("','", $subscribes),
+            $start,
+            $num
         );
+        writeLog($query);
     } else {
         $query = sprintf(
-            "SELECT * FROM posts ORDER BY publish_time LIMIT %s,%s",
+            "SELECT p.* FROM posts p JOIN subsaiddits s on p.subsaiddit = s.title WHERE s.front_page=1 ORDER BY (p.upvotes - p.downvotes) DESC LIMIT %s,%s",
             mysqli_real_escape_string($conn, $start),
-            mysqli_real_escape_string($conn, $num)
+            mysqli_real_escape_string($conn, $num),
+            $start,
+            $num
         );
     }
 
@@ -48,7 +53,7 @@ function getSubsaidditPosts($conn, $start, $num, $subsaiddit) {
     }
 
     $query = sprintf(
-        "SELECT * FROM posts %s ORDER BY publish_time", $where
+        "SELECT * FROM posts %s ORDER BY (upvotes - downvotes) DESC", $where
     );
 
     return queryPosts($conn, $query);
