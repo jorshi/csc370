@@ -1,9 +1,9 @@
 <?php
 
-include_once "db_utils/subsaiddit_factory.php";
 
-function printNavigation($conn) {
 
+function printNavigation($conn, $dir) {
+include_once ($dir."db_utils/subsaiddit_factory.php");
     $subsaiddits = getFrontPage($conn);
 
 ?>
@@ -18,16 +18,17 @@ function printNavigation($conn) {
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="homepage.php">FRONT</a></li>
-                    <li><a href="homepage.php?s=all">ALL</a></li>
-                    <li><a href="homepage.php?s=random">RANDOM</a></li>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="position:absolute; left:0px; width:100%; background-color:#F0F0F0;">
+                <ul class="nav navbar-nav" >
+                    <?php echo '<li><a style="color:black;" href="'.$dir.'homepage.php">FRONT</a></li>'; ?>
+                    <?php echo '<li><a style="color:black;" href="'.$dir.'homepage.php?s=all">ALL</a></li>'; ?>
+                    <?php echo '<li><a style="color:black;" href="'.$dir.'homepage.php?s=all">ALL</a></li>'; ?>
+                    <?php echo '<li><a style="color:black;" href="'.$dir.'homepage.php?s=random">RANDOM</a></li>'; ?>
                     <?php
                         foreach ($subsaiddits as &$sub) {
-                            echo "<li><a href=homepage.php?s=".$sub['title']. ">";
+                            echo " <li> <a style='color:black;' href=".$dir."homepage.php?s=".$sub['title']. ">";
                             echo strtoupper($sub['title']);
-                            echo "</li></a>";
+                            echo "</a></li>";
                         }
                     ?>
                 </ul>

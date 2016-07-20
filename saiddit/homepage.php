@@ -43,7 +43,7 @@
         <?php printMain($user); ?>
 
         <!--HEAD BANNER [the top area of page where headers, nav bar, etc. are]-->
-        <?php printBanner($user, $subsaiddit, $conn); ?>
+        <?php printBanner($user, $subsaiddit, $conn, ''); ?>
 
         <!-- BODY [the area for saiddit and subsaiddit content and advertisement (like on reddit)]-->
             <div id='body' class="container-fluid">
@@ -53,7 +53,7 @@
                 <div id='ads'>
                     <button class='new' id='new_link' onclick='add_new("link")'>Submit a new link</button><br><br>
                     <button class='new' id='new_post' onclick='add_new("text")'>Submit a new text post</button><br><br>
-                    <button class='new' id='new_post' >Create your own Subsaiddit!</button>
+                    <button class='new' id='new_post' onclick='add_new("subsaiddit")'>Create your own Subsaiddit!</button>
                 </div>
             </div>
 
