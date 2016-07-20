@@ -34,11 +34,12 @@ CREATE TABLE posts (
     url VARCHAR(2048),
     upvotes INT DEFAULT 0,
     downvotes INT DEFAULT 0,
-    text BLOB,
+    text TEXT,
 
+    FULLTEXT(title, text),
     FOREIGN KEY (subsaiddit) REFERENCES subsaiddits(title) ON DELETE CASCADE,
     FOREIGN KEY (author) REFERENCES accounts(username) ON DELETE CASCADE
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE comments(
     comment_id INT AUTO_INCREMENT PRIMARY KEY,
