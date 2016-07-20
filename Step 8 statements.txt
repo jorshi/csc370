@@ -1,0 +1,48 @@
+a) ---
+SELECT * 
+FROM posts JOIN accounts ON posts.author=accounts.username 
+WHERE accounts.username='test' 
+ORDER BY (upvotes - downvotes);
+
+b) ---
+SELECT * 
+FROM posts JOIN friends ON posts.author=friends.friend_id 
+WHERE friend_id=(SELECT friend_id FROM friends WHERE user_id='test')
+ORDER BY (upvotes - downvotes);
+
+c) ---
+(
+SELECT subsaid_id 
+FROM subscribes 
+WHERE user_id='test'
+)
+UNION
+(
+SELECT title 
+FROM subsaiddits 
+WHERE front_page=TRUE);
+
+d) ---
+SELECT post_id 
+FROM favourites 
+WHERE user_id='test';
+
+e) ---
+SELECT post_id 
+FROM favourites JOIN friends ON favourites.user_id=friends.friend_id 
+WHERE friend_id=(SELECT friend_id FROM friends WHERE user_id='test');
+
+f) ---
+SELECT subsaid_id 
+FROM subscribes JOIN friends ON subscribes.subsaid_id=friends.friend_id
+WHERE friend_id=(SELECT friend_id FROM friends WHERE user_id='test');
+
+g) ---
+SELECT post_id 
+FROM posts JOIN subsaiddits ON subsaiddits.creator_key=posts.author;
+
+h) ---
+SELECT * FROM posts 
+WHERE MATCH (title,text) AGAINST ('you ever' IN NATURAL LANGUAGE MODE);
+
+SELECT post_id FROM posts JOIN friends ON posts.author=friends.friend_id WHERE friend_id=(SELECT friend_id FROM friends WHERE user_id='test');
