@@ -5,7 +5,7 @@
 
 include('../saiddit/db_utils/connect.php');
 
-$salt = "somesortofsalt";
+$salt = 'somesortofsalt';
 
 // Given an array of dictionaries keyed with the column
 // name for a table, insert those
@@ -54,6 +54,8 @@ function clean($conn, $str) {
 // Program main
 function main() {
 
+    global $salt; //global variables in PHP need to be declared in scope.
+    
     // Create connection to the database
     $conn = db_connect();
 
