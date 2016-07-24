@@ -22,7 +22,7 @@ function printBanner($user, $subsaiddit, $conn=NULL,$dir) {
 
             <?php
                 if ($user != NULL) {
-                    echo "<script>document.getElementById('login_button').innerHTML = \"<a href='#' onclick=''>".$user."</a> <a href='#' onclick=''>(0)</a> |     | <a href='#' onclick=''><b>preferences</b></a> | <a href='connect/logout.php'>logout</a> |\";</script>";
+                    echo "<script>document.getElementById('login_button').innerHTML = \"<a href='#'>".$user."</a> <a href='#'>(0)</a> |     | <a href='#'><b>preferences</b></a> | <a href='connect/logout.php'>logout</a> | <a href='#' onclick='div_show_settings()'>account settings</a> |\";</script>";
                     echo "<script>logged_in = true;</script>";
                 }
                 else{

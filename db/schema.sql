@@ -21,7 +21,7 @@ CREATE TABLE  subsaiddits(
 	front_page BOOLEAN DEFAULT 0,
 	creator_key VARCHAR(255) NOT NULL,
 
-	FOREIGN KEY (creator_key) REFERENCES accounts(username) ON DELETE CASCADE
+	FOREIGN KEY (creator_key) REFERENCES accounts(username) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE posts (
@@ -38,25 +38,29 @@ CREATE TABLE posts (
 
     FULLTEXT(title, text),
     FOREIGN KEY (subsaiddit) REFERENCES subsaiddits(title) ON DELETE CASCADE,
-    FOREIGN KEY (author) REFERENCES accounts(username) ON DELETE CASCADE
+    FOREIGN KEY (author) REFERENCES accounts(username) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 CREATE TABLE comments(
     comment_id INT AUTO_INCREMENT PRIMARY KEY,
     commentor_id VARCHAR(255) NOT NULL,
-    upvotes INT,
-    downvotes INT,
+    upvotes INT DEFAULT 0,
+    downvotes INT DEFAULT 0,
     creation_time DATETIME DEFAULT NOW(),
     text VARCHAR(1024),
+    post_id INT NOT NULL,
+    comment_parent_id INT,
 
-    FOREIGN KEY (commentor_id) REFERENCES accounts(username) ON DELETE CASCADE
+    FOREIGN KEY (commentor_id) REFERENCES accounts(username) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (post_id) REFERENCES posts(post_id) ON DELETE CASCADE,
+    FOREIGN KEY (comment_parent_id) REFERENCES comments(comment_id) ON DELETE CASCADE
 );
 
 CREATE TABLE favourites(
     user_id VARCHAR(255),
     post_id INT,
 
-    FOREIGN KEY (user_id) REFERENCES accounts(username) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES accounts(username) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (post_id) REFERENCES posts(post_id) ON DELETE CASCADE
 );
 
@@ -65,7 +69,7 @@ CREATE TABLE friends (
     friend_id VARCHAR(255) NOT NULL,
 
     PRIMARY KEY (user_id,friend_id),
-    FOREIGN KEY (user_id) REFERENCES accounts(username) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES accounts(username) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (friend_id) REFERENCES accounts(username) ON DELETE CASCADE
 );
 
@@ -74,6 +78,6 @@ CREATE TABLE subscribes (
     subsaid_id VARCHAR(255) NOT NULL,
 
     PRIMARY KEY (user_id, subsaid_id),
-    FOREIGN KEY (user_id) REFERENCES accounts(username) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES accounts(username) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (subsaid_id) REFERENCES subsaiddits(title) ON DELETE CASCADE
 );

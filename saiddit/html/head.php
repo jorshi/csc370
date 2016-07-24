@@ -19,8 +19,19 @@ function printHead($user) {
                 document.getElementById('popup_main').style.display = 'block';
             }
 
+
             function div_hide(){
                 document.getElementById('popup_main').style.display = 'none';
+            }
+
+            function div_show_settings() {
+                clearFormSaiddit();
+                document.getElementById('popup_settings').style.overflow = 'scroll';
+                document.getElementById('popup_settings').style.display = 'block';
+            }
+
+            function div_hide_settings(){
+                document.getElementById('popup_settings').style.display = 'none';
             }
 
             function add_new(type) {

@@ -99,7 +99,7 @@ i {
     position:absolute;
     right:0px;
     bottom:0px;
-    width:200px;
+    width:300px;
     text-align:center;
     background-color:#E3EDFA;
 }
@@ -239,7 +239,7 @@ i {
     position:absolute;
 
     text-align:center;
-    font-size:28px;
+    font-size:25px;
 
     width:20px;
     height:20px;
@@ -382,3 +382,166 @@ i {
 	width:95%;
     resize: none;
 }
+
+/* ------------------------------------------------------ NEW_COMMENT ------------------------------------------------------ */
+
+#popup_comment {
+    z-index:99;
+
+    width:100%;
+    height:100%;
+
+
+    top:0;
+    left:0;
+
+    display:none;
+    position:fixed;
+
+    background-color:rgba(0,0,0,0.6);
+    overflow:auto;
+}
+
+#comment_block {
+    z-index:100;
+    position:relative;
+    margin:2% auto;
+    opacity:1;
+    width:450px;
+    height:350px;
+
+    border:2px solid gray;
+    border-radius:10px;
+
+    font-family:'Raleway',sans-serif;
+    background-color:#fff;
+    overflow:hidden;
+}
+
+#close_popup_comment:before {
+    position:relative;
+    left:-10px;
+    top:-10px;
+    content:'x';
+    color:#5087B6;
+    z-index:101;
+}
+
+#close_popup_comment {
+    position:absolute;
+    right:20px;
+    top:10px;
+    font-size:30px;
+    cursor:pointer;
+}
+
+#comment_content {
+    width: 100%;
+    height: 250px;
+    margin-left:auto;
+    margin-right:auto;
+    border: 2px solid black;
+}
+
+#submit_comment {
+    position:relative;
+    left:0px;
+}
+
+/* ------------------------------------------------------ ACCOUNT SETTINGS ------------------------------------------------------ */
+
+
+
+#popup_settings {
+    z-index:99;
+
+    width:100%;
+    height:100%;
+
+
+    top:0;
+    left:0;
+
+    display:none;
+    position:fixed;
+
+    background-color:rgba(0,0,0,0.6);
+    overflow:auto;
+}
+
+#block_settings {
+    z-index:100;
+    position:relative;
+    margin:2% auto;
+    opacity:1;
+    width:500px;
+    height:650px;
+
+    border:2px solid gray;
+    border-radius:10px;
+
+    font-family:'Raleway',sans-serif;
+    background-color:#fff;
+    overflow:hidden;
+}
+
+#close_popup_settings:before {
+    content:'x';
+    color:#5087B6;
+}
+
+#close_popup_settings {
+    position:absolute;
+    right:20px;
+    top:10px;
+    font-size:30px;
+    cursor:pointer;
+}
+
+#settings_form {
+    position:absolute;
+
+    top:40px;
+    left:10px;
+
+    width:480px;
+    height:600px;
+
+    padding:10px 30px;
+    font-family:'Raleway',sans-serif;
+}
+
+#delete_account {
+    position:absolute;
+    left:85px;
+    bottom:0px;
+
+    background-color:red;
+    width:300px;
+    padding:10px 30px;
+    font-family:'Raleway',sans-serif;
+
+    font-size:12px;
+    color:white;
+    border:2px solid gray;
+    border-radius:10px;
+}
+
+#submit_changes {
+    position:absolute;
+    left:85px;
+    bottom:50px;
+
+    width:300px;
+    padding:10px 30px;
+    font-family:'Raleway',sans-serif;
+
+    font-size:12px;
+    color:white;
+    border:2px solid gray;
+    border-radius:10px;
+}
+
+
+
+

@@ -2,7 +2,8 @@
 
 function printMain($user) {
     ?>
-    <div id='main'>
+        
+        <div id='main'>
         <div id='popup_main'>
             <div id='block'>
                 <div id='close_popup_main' onclick ='div_hide()'></div>
@@ -55,8 +56,49 @@ function printMain($user) {
                 </form>
             </div>
         </div>
+
+        <div id='popup_settings'>
+            <li id='current_user' value=''></li>
+            <div id='block_settings'>
+                <div id='close_popup_settings' onclick ='div_hide_settings()'></div>
+
+                <form id='settings_form' name='settings_form' action='../connect/settings.php' method='post' onsubmit='return validateFormSettings("settings_form", "username_change", "old_password", "password_change", "verify_password_change")'>
+                    <input type='hidden' value='' id='c_user' name='c_user'>
+                    <div class='title'>SETTINGS</div><br>
+                    Change Username:<br>
+                    <input type='text' id='username_change' name='username_change' placeholder='choose a username'>
+                    <div class='valid' id='valid_name_change' style='top:90px; right:10px; z-index:-1;'> </div>
+
+                    <br>
+                    <br>
+                    <br>
+                    Change Password:<br>
+                   
+                    <input type='text' id='old_password' name='old_password' placeholder='old password'>
+                    <div class='valid' id='valid_old_password' style='top:190px; right:10px; z-index:-1;'> </div>
+                    <br>
+                    <input type='text' id='password_change' name='password_change' placeholder='new password'>
+                    <div class='valid' id='valid_password_change' style='top:255px; right:10px; z-index:-1;'> </div>
+
+                    <input type='text' id='verify_password_change' name='verify_password_change' placeholder='verify password'>
+                    <div class='valid' id='valid_verpass_change' style='top:300px; right:10px; z-index:-1;'> </div>
+                    <br>
+                    <div class='error' id='error_settings' style='left:35px; width:400px;'></div>
+                    <br>
+                    <input type='submit' id='submit_changes' name='submit_changes' value='SUBMIT CHANGES'>
+                    <br>
+                    <br>    
+                </form>
+                <form id='delete_form' name='delete_form' action='../connect/delete_user.php' method='post' onsubmit='return confirm("Are you sure you want to delete your account? Your entire history will be deleted as well.")'>
+                    <input type='submit' id='delete_account' name='delete_account' value='DELETE ACCOUNT'>
+                </form>
+            </div>
+        </div>
     </div>
     <?php
+    echo "<script> 
+        document.getElementById('current_user').setAttribute('value', '".$user."');
+    </script>";
 }
 ?>
 
