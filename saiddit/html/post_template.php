@@ -15,6 +15,17 @@ function printPostTemplate($user) {
             }
         }
 
+       function deletePost(post_id) {
+            $.ajax({
+                method: "POST",
+                url: "../interface/delete_post.php",
+                data: {delete_post: post_id},
+                success: function(data){
+                    location.reload();
+                }
+            });
+        }
+
         function div_show_comment() {
             clearFormSaiddit();
             document.getElementById('popup_comment').style.overflow = 'scroll';
@@ -49,6 +60,8 @@ function printPostTemplate($user) {
             <br>
             <br>
             <div class='new_comment_button'></div>
+            <br>
+            <div class='delete_post_button'></div>
             <br>
         </div>
 

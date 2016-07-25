@@ -21,6 +21,8 @@ function postCallback(data) {
         commentButton = newPost.find('.new_comment_button');
         commentButton.append("<a href='#' class='comment_button' id='comment_button' onclick='newComment(\""+data[i].post_id+'\",\"'+data[i].subsaiddit+'\",\"'+i+"\")' style='color:black;'> COMMENT ON THIS POST </a>");
 
+        deleteButton = newPost.find('.delete_post_button');
+        deleteButton.append('<a href="#" onclick="deletePost('+data[i].post_id+')" style="color:black;">DELETE POST</a>');
         newPost.find('#post_id').text(data[i].post_id);
         newPost.find('#subsaiddit_id').text(data[i].subsaiddit);
         $.ajax({
@@ -37,13 +39,14 @@ function postCallback(data) {
                 for (j=0; j<comment.length; j++){
                     //console.log("INNER LOOP: "+j);
                     //console.log("COMMENT FOR POST #"+i+": "+comment[j]);
-                    newPost.find('.media-body').append('<div class="media-left post-comments" id="post-comment'+j+'" style="position:relative; width:600px; height:100px;"><div class="author'+j+'" id="author'+j+'" style="position:absolute; left:0px; top:0px; font-size:20px; font-weight:bold;"></div><div class="time'+j+'" id="time'+j+'" style="color:grey; position:absolute; right:0px;top:0px;"></div><br><br><div class="comment'+j+'" id="comment'+j+'" style="color:black; position:absolute; left:0px; font-size:15px;"></div><b><div class="reply'+j+'" id="reply'+j+'" style="position:absolute; bottom:0px; left:0px; color:black;"></div></b></div><br><br>');
+                    newPost.find('.media-body').append('<div class="media-left post-comments" id="post-comment'+j+'" style="position:relative; width:600px; height:100px;"><div class="author'+j+'" id="author'+j+'" style="position:absolute; left:0px; top:0px; font-size:20px; font-weight:bold;"></div><div class="time'+j+'" id="time'+j+'" style="color:grey; position:absolute; right:0px;top:0px;"></div><br><br><div class="comment'+j+'" id="comment'+j+'" style="color:black; position:absolute; left:0px; font-size:15px;"></div><b><div class="reply'+j+'" id="reply'+j+'" style="position:absolute; bottom:0px; left:0px; color:black;"></div></b></div><br><br><br>');
                     
                     newPost.find('.comment'+j).text(comment[j]);
                     newPost.find('.author'+j).text('[-] '+author[j]);
                     newPost.find('.time'+j).text(time[j]);
 
                     newPost.find('.reply'+j).text('permalink    embed    save    report    give gold    reply');
+                    newPost.find('.delete'+j).text('DELETE POST');
                 }
             }
         });
