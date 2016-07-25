@@ -25,7 +25,7 @@
 	    // Check username and subsaiddit to see if we've subscribed
         $query = sprintf(
             "SELECT 1 FROM subscribes WHERE user_id='%s' AND subsaid_id='%s'",
-            mysqli_real_escape_string($conn, $_SESSION['login_user']),
+            mysqli_real_escape_string($conn, $user),
             mysqli_real_escape_string($conn, $subsaiddit)
         );
         $result = mysqli_query($conn, $query);
@@ -50,10 +50,9 @@
     if ($subsaiddit == "random") {
         $subsaiddit = getRandom($conn);
     }
-    if ($subsaiddit == "all"){
+    if ($subsaiddit == "all" || $user == NULL){
         $hidesubscribe = "hide";
-    }
-    
+    } 
     
 ?>
 
