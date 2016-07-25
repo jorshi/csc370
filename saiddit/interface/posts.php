@@ -8,9 +8,9 @@ $conn = db_connect();
 $subsaiddit = $_GET['subsaiddit'];
 
 if ($subsaiddit == "front") {
-    $posts = getHomepagePosts($conn, 0, 250, $user);
+    $posts = getHomepagePosts($conn, 0, 50, $user);
 } else {
-    $posts = getSubsaidditPosts($conn, 0, 250, $subsaiddit);
+    $posts = getSubsaidditPosts($conn, 0, 50, $subsaiddit);
 }
 echo json_encode($posts);
 

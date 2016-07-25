@@ -15,7 +15,7 @@ function printBanner($user, $subsaiddit, $conn=NULL,$dir) {
 <!-- Old nav
         <a>MY SUBSAIDDITS</a> <a href="homepage.php">FRONT</a> <a href="homepage.php?s=all">ALL</a> <a href="homepage.php?s=random">RANDOM</a> | <a>ASKSAIDDIT</a> - <a>NEWS</a> - <a>VIDEOS</a> - <a>PICS</a> - <a>GAMING</a> - <a>WORLDNEWS</a> <a>MORE</a>
 -->
-        <?php printNavigation($conn, $dir) ?>
+        <?php printNavigation($conn, $dir, $user) ?>
         <div id='nav_bar' class="container-fluid">
             <?php echo '<a href = "'.$dir.'homepage.php" ><h1 class="nav-title" style="color:black;">:) Saiddit</h1><a><span id="page-title" class="nav-title" style="color:black;">'.$title.'</span>';?>
             <div id='login_button' value='0'></div>

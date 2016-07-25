@@ -1,7 +1,11 @@
 function subscribeTo(_element) {
+
+        var subsaiddit = $('#subsaiddit').val();
+        var hidesubscribe = $('#hidesubscribe').val();
+
         $.ajax({
             url: 'db_utils/subscribe_button.php',
-            data: {action: '<?php echo $hidesubscribe ?>', subsaiddit: '<?php echo $subsaiddit ?>'},
+            data: {action: hidesubscribe, subsaiddit: subsaiddit},
             type: 'post',
             success: function() {
                 if ($(_element).hasClass('subscribe')){
@@ -19,3 +23,4 @@ function subscribeTo(_element) {
             }
         });
 }
+

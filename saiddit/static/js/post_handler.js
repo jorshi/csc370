@@ -19,7 +19,7 @@ function postCallback(data) {
         );
         url = location.pathname + "?s=" + data[i].subsaiddit;
         commentButton = newPost.find('.new_comment_button');
-        commentButton.append("<a class='comment_button' id='comment_button' onclick='newComment(\""+data[i].post_id+'\",\"'+data[i].subsaiddit+'\",\"'+i+"\")' style='color:black;'> COMMENT ON THIS POST </a>");
+        commentButton.append("<a href='#' class='comment_button' id='comment_button' onclick='newComment(\""+data[i].post_id+'\",\"'+data[i].subsaiddit+'\",\"'+i+"\")' style='color:black;'> COMMENT ON THIS POST </a>");
 
         newPost.find('#post_id').text(data[i].post_id);
         newPost.find('#subsaiddit_id').text(data[i].subsaiddit);

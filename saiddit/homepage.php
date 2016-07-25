@@ -152,6 +152,7 @@
         <?php printPostTemplate($user) ?>
 
         <input style="display:none" id="subsaiddit" value="<?php echo $subsaiddit ?>"/>
+        <input style="display:none" id="hidesubscribe" value="<?php echo $hidesubscribe ?>"/>
 
     </body>
 </html>

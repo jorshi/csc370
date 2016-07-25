@@ -53,7 +53,10 @@ function getSubsaidditPosts($conn, $start, $num, $subsaiddit) {
     }
 
     $query = sprintf(
-        "SELECT * FROM posts %s ORDER BY (upvotes - downvotes) DESC", $where
+        "SELECT * FROM posts %s ORDER BY (upvotes - downvotes) DESC LIMIT %s,%s",
+        $where,
+        $start,
+        $num
     );
 
     return queryPosts($conn, $query);

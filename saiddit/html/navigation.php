@@ -1,10 +1,17 @@
 <?php
 
-
-
-function printNavigation($conn, $dir) {
 include_once ($dir."db_utils/subsaiddit_factory.php");
+include_once ($dir."db_utils/subscribes_factory.php");
+include_once ($dir."html/my_subscribes.php");
+
+function printNavigation($conn, $dir, $user) {
+
     $subsaiddits = getFrontPage($conn);
+    if ($user != NULL) {
+        $subscribes = getUserSubscribes($conn, $user);
+    } else {
+        $subscribes = array();
+    }
 
 ?>
     <nav id="navbar-saiddit" class="navbar">
@@ -20,6 +27,11 @@ include_once ($dir."db_utils/subsaiddit_factory.php");
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="position:absolute; left:0px; width:100%; background-color:#F0F0F0;">
                 <ul class="nav navbar-nav" >
+                    <?php 
+                        if ($subscribes != NULL) {
+                            printSubscribeDropdown($subscribes);
+                        }
+                    ?>
                     <?php echo '<li><a style="color:black;" href="'.$dir.'homepage.php">FRONT</a></li>'; ?>
                     <?php echo '<li><a style="color:black;" href="'.$dir.'homepage.php?s=all">ALL</a></li>'; ?>
                     <?php echo '<li><a style="color:black;" href="'.$dir.'homepage.php?s=random">RANDOM</a></li>'; ?>
