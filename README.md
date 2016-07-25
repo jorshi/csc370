@@ -6,6 +6,11 @@
 
 ![Alt text](presentation/csc370_p1.png)
 
+Legend:
+  - many-to-many: straight line
+  - many-to-one: straight line with arrow
+  - one-to-one: straight line with semi-circle
+
 ## Part 2: Schema:
 
 Schema went relatively unchanged from the beginning. We built our schema with the intention of making Saiddit a clone of Reddit, so our database decisions were based on what we observed of Reddit itself (ex. friends are strictly one way).
