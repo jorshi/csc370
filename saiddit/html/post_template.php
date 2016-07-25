@@ -30,9 +30,9 @@ function printPostTemplate($user) {
     <div id='current_iteration' value=''></div>
     <div class="media panel panel-default post-template" style="display:none;">
         <div class="media-left post-votes-wrapper">
-            <span class="glyphicon glyphicon-chevron-up vote-glyph"></span>
-            <span class="post-votes"></span>
-            <span class="glyphicon glyphicon-chevron-down vote-glyph"></span>
+            <span class="glyphicon glyphicon-chevron-up vote-glyph" style='color:grey;'></span>
+            <span class="post-votes" style='color:grey;'></span>
+            <span class="glyphicon glyphicon-chevron-down vote-glyph" style='color:grey;'></span>
         </div>
         <!-- Leave out the image for now
         <div class="media-left">
