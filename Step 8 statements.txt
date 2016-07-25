@@ -23,25 +23,29 @@ FROM subsaiddits
 WHERE front_page=TRUE);
 
 d) ---
-SELECT post_id 
-FROM favourites 
+SELECT posts.title 
+FROM favourites JOIN posts ON favourites.post_id=posts.post_id 
 WHERE user_id='test';
 
 e) ---
-SELECT post_id 
-FROM favourites JOIN friends ON favourites.user_id=friends.friend_id 
+SELECT posts.title FROM posts
+    JOIN favourites ON
+        favourites.post_id=posts.post_id
+    JOIN friends ON favourites.user_id=friends.friend_id
 WHERE friend_id=(SELECT friend_id FROM friends WHERE user_id='test');
 
 f) ---
 SELECT subsaid_id 
-FROM subscribes JOIN friends ON subscribes.subsaid_id=friends.friend_id
+FROM subscribes JOIN friends ON subscribes.user_id=friends.friend_id
 WHERE friend_id=(SELECT friend_id FROM friends WHERE user_id='test');
 
 g) ---
-SELECT post_id 
-FROM posts JOIN subsaiddits ON subsaiddits.creator_key=posts.author;
+SELECT DISTINCT(posts.title )
+FROM posts JOIN subsaiddits ON subsaiddits.creator_key=posts.author
+WHERE subsaiddits.creator_key='test';
 
 h) ---
 SELECT * FROM posts 
 WHERE MATCH (title,text) AGAINST ('you ever' IN NATURAL LANGUAGE MODE);
 
+# Step 9: query e) is the slowest query as it involves joining three tables AND sub-querying one of the tables.
