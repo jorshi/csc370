@@ -16,21 +16,48 @@
     $user = getSessionUser();
     $request = $_GET;
     $error = NULL;
-
+    $hidesubscribe = "hide";
+    
     if (isset($request['s'])) {
         $subsaiddit = $request['s'];
+        
+        $conn = db_connect();
+	    // Check username and subsaiddit to see if we've subscribed
+        $query = sprintf(
+            "SELECT 1 FROM subscribes WHERE user_id='%s' AND subsaid_id='%s'",
+            mysqli_real_escape_string($conn, $_SESSION['login_user']),
+            mysqli_real_escape_string($conn, $subsaiddit)
+        );
+        $result = mysqli_query($conn, $query);
+        
+        if(mysqli_num_rows($result) > 0 ){ //if we are subscribed, use the text and css for unsubscribe
+            $hidesubscribe = "unsubscribe";
+        }else{
+            $hidesubscribe = "subscribe";
+        }
+        
         if (!isSubsaiddit($conn, $subsaiddit))  {
             $error = "Subsaiddit does not exist";
+            
             $subsaiddit = "front";
+            $hidesubscribe = "hide"; //if it fails, hide subscribe button again
         }
     } else {
         $subsaiddit = "front";
+        $hidesubscribe = "hide"; //hide the subscribe button on front and all
     }
 
     if ($subsaiddit == "random") {
         $subsaiddit = getRandom($conn);
     }
+    if ($subsaiddit == "all"){
+        $hidesubscribe = "hide";
+    }
+    
+    
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -90,6 +117,9 @@
  						<img id='ad1' src="" alt="" width='100%' height='100%' style='z-index:99;'>
  						<center><a onclick='alert("This isnt a real ad...")'>discuss this ad on saiddit</a></center>
                 	</div>
+                    <br>
+                	<br>
+                    <button class=<?php echo $hidesubscribe ?> id='subscribe_button' onclick='subscribeTo($(this))'><?php echo $hidesubscribe ?></button><br><br>
                 	<br>
                 	<br>
                     <button class='new' id='new_link' onclick='add_new("link")'>Submit a new link</button>
@@ -125,3 +155,6 @@
 
     </body>
 </html>
+
+
+

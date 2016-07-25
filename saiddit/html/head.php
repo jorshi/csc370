@@ -11,6 +11,7 @@ function printHead($user) {
         <script type="text/javascript" src="static/js/post_handler.js"></script>
         <script type="text/javascript" src="static/js/validateForm.js"></script>
         <script type="text/javascript" src="static/js/clearForm.js"></script>
+        <script type="text/javascript" src="static/js/subscribe.js"></script>
         <script>
         	var logged_in = false;
             function div_show() {
