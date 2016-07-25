@@ -22,7 +22,6 @@ include_once ($dir."db_utils/subsaiddit_factory.php");
                 <ul class="nav navbar-nav" >
                     <?php echo '<li><a style="color:black;" href="'.$dir.'homepage.php">FRONT</a></li>'; ?>
                     <?php echo '<li><a style="color:black;" href="'.$dir.'homepage.php?s=all">ALL</a></li>'; ?>
-                    <?php echo '<li><a style="color:black;" href="'.$dir.'homepage.php?s=all">ALL</a></li>'; ?>
                     <?php echo '<li><a style="color:black;" href="'.$dir.'homepage.php?s=random">RANDOM</a></li>'; ?>
                     <?php
                         foreach ($subsaiddits as &$sub) {

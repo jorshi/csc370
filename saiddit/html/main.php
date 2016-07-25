@@ -13,10 +13,10 @@ function printMain($user) {
                     <input type='text' id='username_new' name='username_new' placeholder='choose a username'>
                     <div class='valid' id='valid_name' style='top:45px; left:340px;'> </div>
 
-                    <input type='text' id='password_new' name='password_new' placeholder='password'>
+                    <input type='password' id='password_new' name='password_new' placeholder='password'>
                     <div class='valid' id='valid_password' style='top:97px; left:340px;'> </div>
 
-                    <input type='text' id='verify_password' name='verify_password' placeholder='verify password'>
+                    <input type='password' id='verify_password' name='verify_password' placeholder='verify password'>
                     <div class='valid' id='valid_verpass' style='top:150px; left:340px;'> </div>
 
                     <input type='text' id='email' name='email' placeholder='email (optional)'>
@@ -42,7 +42,7 @@ function printMain($user) {
                     <input type='text' id='username' name='username' placeholder='username'>
                     <div class='valid' id='valid_user' style='top:45px; right:20px;'> </div>
 
-                    <input type='text' id='password' name='password' placeholder='password'>
+                    <input type='password' id='password' name='password' placeholder='password'>
                     <div class='valid' id='valid_pass' style='top:95px; right:20px'> </div>
 
                     <br>
