@@ -1,10 +1,9 @@
 <?php
 
-include_once ($dir."db_utils/subsaiddit_factory.php");
-include_once ($dir."db_utils/subscribes_factory.php");
-include_once ($dir."html/my_subscribes.php");
-
 function printNavigation($conn, $dir, $user) {
+    include_once ($dir."db_utils/subsaiddit_factory.php");
+    include_once ($dir."db_utils/subscribes_factory.php");
+    include_once ($dir."html/my_subscribes.php");
 
     $subsaiddits = getFrontPage($conn);
     if ($user != NULL) {
