@@ -11,6 +11,7 @@
     include('html/main.php');
     include('html/footer.php');
     include('html/post_template.php');
+    include('html/ads.php');
 
     $conn = db_connect();
     $user = getSessionUser();
@@ -73,30 +74,6 @@
     <!-- Print the page head. html/head.php -->
     <?php printHead($user); ?>
 
-    <script type='text/javascript'>
-    	function randomize_ads() {
-    		var images = new Array("arrays.jpg","brothers.jpg","comsci_job.jpg","eat_more_chicken.jpg", "elven_king.jpg","escape.jpg","gillette.jpg","hoover.jpg", "people-nowadays.jpg","redbull.jpg","shaving.jpg","sleeping.jpg", "Thoreal.jpg","weight.jpg");
-    		var imageNum = Math.floor(Math.random() * images.length);
-    		var current_img = imageNum;
-    		document.getElementById("ad1").src = "static/img/"+images[imageNum];
-
-    		imageNum = Math.floor(Math.random() * images.length);
-    		while (imageNum == current_img){
-    			imageNum = Math.floor(Math.random() * images.length);    			
-    		}
-    		current_img = imageNum;
-    		document.getElementById("ad2").src = "static/img/"+images[imageNum];
-
-    		imageNum = Math.floor(Math.random() * images.length);
-
-    		while (imageNum == current_img){
-    			imageNum = Math.floor(Math.random() * images.length);		
-    		}
-    		current_img = imageNum;
-    		document.getElementById("ad3").src = "static/img/"+images[imageNum];
-    	}
-    	window.onload = randomize_ads;
-    </script>
     <body>
 
         <!--MAIN [area where things that are not immediately on page will be (popups, etc)]-->
@@ -110,38 +87,7 @@
                 <div id='content'>
                     <div class="list-group"></div>
                 </div>
-                
-                <div id='ads'>
-                	<div style='width:100%; height:200px; border:1px solid grey'>
- 						<img id='ad1' src="" alt="" width='100%' height='100%' style='z-index:99;'>
- 						<center><a onclick='alert("This isnt a real ad...")'>discuss this ad on saiddit</a></center>
-                	</div>
-                    <br>
-                	<br>
-                    <button class=<?php echo $hidesubscribe ?> id='subscribe_button' onclick='subscribeTo($(this))'><?php echo $hidesubscribe ?></button><br><br>
-                	<br>
-                	<br>
-                    <button class='new' id='new_link' onclick='add_new("link")'>Submit a new link</button>
-                    <br>
-                    <br>
-                    <button class='new' id='new_post' onclick='add_new("text")'>Submit a new text post</button>
-                    <br>
-                    <br>
-                    <button class='new' id='new_post' onclick='add_new("subsaiddit")'>Create your own Subsaiddit!</button>
-                    <br>
-                    <br>
-                    <br>
-                    <div style='width:100%; height:300px; border:1px solid grey'>
- 						<img id='ad2' src="" alt="" width='100%' height='100%' style='z-index:99;'>
- 						<center><a onclick='alert("This isnt a real ad...")'>discuss this ad on saiddit</a></center>
-                	</div>
-                	<br>
-                	<br>
-                	<div style='width:100%; height:300px; border:1px solid grey'>
- 						<img id='ad3' src="" alt="" width='100%' height='100%' style='z-index:99;'>
- 						<center><a onclick='alert("This isnt a real ad...")'>discuss this ad on saiddit</a></center>
-                	</div>
-                </div>
+                <?php printAds($user, ''); ?>
             </div>
 
         <!-- FOOT [as seen in reddit there is a bottom area with some links (just for show)]-->

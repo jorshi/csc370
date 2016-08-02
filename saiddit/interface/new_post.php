@@ -8,6 +8,7 @@
 
     include('../html/banner.php');
     include('../html/footer.php');
+    include('../html/ads.php');
 
     $conn = db_connect();
     $user = getSessionUser();
@@ -33,20 +34,7 @@
 
 <!--HEAD [the top area of page where headers, nav bar, etc. are]-->
         <?php printBanner($user, $subsaiddit, $conn, '../'); ?>
-<!--
-        <div id='head'>
-            <a>MY SUBSAIDDITS</a> <a>FRONT</a> <a>ALL</a> <a>RANDOM</a> | <a>ASKSAIDDIT</a> - <a>NEWS</a> - <a>VIDEOS</a> - <a>PICS</a> - <a>GAMING</a> - <a>WORLDNEWS</a> <a>MORE</a>
 
-            <div id='nav_bar'>
-                <a href='homepage.php'><h1>:) Saiddit Submit</h1></a>
-                <div id='login_button'></div>
-
-                <?php
-			    	//echo "<script>document.getElementById('login_button').innerHTML = \"<a href='#' onclick=''>".$user."</a> <a href='#' onclick=''>(#)</a> |     | <a href='#' onclick=''><b>preferences</b></a> | <a href='logout.php'>logout</a> |\";</script>";
-                ?>        
-            </div>
-        </div>
--->
 <!-- BODY [the area for saiddit and subsaiddit content and advertisement (like on reddit)]-->
         <div id='body'>
             <div id='content_submit'>
@@ -181,10 +169,7 @@
                     </div>
 				</div>
             </div>
-
-
-            <div id='ads_submit'>
-            </div>
+            <?php printAds($user, '../'); ?>
         </div>
 
 <!-- FOOT [as seen in reddit there is a bottom area with some links (just for show)]-->
